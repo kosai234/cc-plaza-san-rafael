@@ -5,8 +5,8 @@
 // CONFIGURACIÓN DE SUPABASE
 // =====================================================
 // IMPORTANTE: Reemplaza estos valores con los de tu proyecto
-const SUPABASE_URL = 'https://TU_PROYECTO.supabase.co';
-const SUPABASE_ANON_KEY = 'tu_anon_key_aqui';
+const SUPABASE_URL = 'https://ioqapcvohbsoxwytspif.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlvcWFwY3ZvaGJzb3h3eXRzcGlmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg2MDMxNDYsImV4cCI6MjA4NDE3OTE0Nn0.plNnR8P0LKsHEw2qFxVSTeuLXyqm6SWN9ZRrNTjEnR8';
 
 // Cliente de Supabase (se inicializa después de cargar el script)
 let supabase = null;

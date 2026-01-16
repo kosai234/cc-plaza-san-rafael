@@ -1,41 +1,208 @@
-// Plaza San Rafael - Main Application
+// Plaza San Rafael - Main Application with Supabase
+// =====================================================
 
-let negociosData = null;
+// =====================================================
+// CONFIGURACIÓN DE SUPABASE
+// =====================================================
+// IMPORTANTE: Reemplaza estos valores con los de tu proyecto
+const SUPABASE_URL = 'https://TU_PROYECTO.supabase.co';
+const SUPABASE_ANON_KEY = 'tu_anon_key_aqui';
+
+// Cliente de Supabase (se inicializa después de cargar el script)
+let supabase = null;
+
+// Datos cargados
+let negociosData = {
+    negocios: [],
+    categorias: [],
+    eventos: [],
+    promociones: [],
+    noticias: [],
+    centroComercial: null
+};
+
 let currentFilter = 'all';
+let useSupabase = false; // Se activa si Supabase está configurado
 
-// Load data from JSON
-async function loadData() {
-    try {
-        const response = await fetch('data/negocios.json');
-        negociosData = await response.json();
-        initializeApp();
-    } catch (error) {
-        console.error('Error loading data:', error);
+// =====================================================
+// INICIALIZACIÓN
+// =====================================================
+
+async function initializeApp() {
+    // Verificar si Supabase está configurado
+    if (SUPABASE_URL !== 'https://TU_PROYECTO.supabase.co' && typeof window.supabase !== 'undefined') {
+        try {
+            supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+            useSupabase = true;
+            console.log('Conectado a Supabase');
+        } catch (error) {
+            console.warn('Error conectando a Supabase, usando JSON local:', error);
+            useSupabase = false;
+        }
     }
-}
 
-function initializeApp() {
+    // Cargar datos
+    await loadData();
+
+    // Renderizar componentes
+    renderCategorias();
     renderTopNegocios();
     renderFeaturedNegocios();
     renderEventos();
     renderPromociones();
     renderNoticias();
-    renderCategorias();
     initializeSearch();
     initializeScrollAnimations();
 }
 
-// Render Top Businesses (Sponsored)
+// =====================================================
+// CARGA DE DATOS
+// =====================================================
+
+async function loadData() {
+    if (useSupabase) {
+        await loadFromSupabase();
+    } else {
+        await loadFromJSON();
+    }
+}
+
+// Cargar desde Supabase
+async function loadFromSupabase() {
+    try {
+        // Cargar todas las tablas en paralelo
+        const [
+            { data: categorias, error: catError },
+            { data: negocios, error: negError },
+            { data: eventos, error: evtError },
+            { data: promociones, error: proError },
+            { data: noticias, error: notError },
+            { data: config, error: confError }
+        ] = await Promise.all([
+            supabase.from('categorias').select('*').order('orden'),
+            supabase.from('negocios').select('*').eq('activo', true),
+            supabase.from('eventos').select('*').eq('activo', true).order('fecha'),
+            supabase.from('promociones').select('*').eq('activo', true),
+            supabase.from('noticias').select('*').eq('activo', true).order('fecha', { ascending: false }),
+            supabase.from('configuracion').select('*').eq('clave', 'info_general').single()
+        ]);
+
+        // Verificar errores
+        if (catError) throw catError;
+        if (negError) throw negError;
+
+        // Transformar datos de Supabase al formato esperado por el frontend
+        negociosData.categorias = categorias.map(c => ({
+            id: c.id,
+            nombre: c.nombre,
+            icono: c.icono,
+            color: c.color
+        }));
+
+        negociosData.negocios = negocios.map(n => ({
+            id: n.id,
+            nombre: n.nombre,
+            categoria: categorias.find(c => c.id === n.categoria_id)?.nombre || n.categoria_id,
+            descripcion: n.descripcion,
+            imagen: n.imagen,
+            local: n.local,
+            nivel: n.nivel,
+            telefono: n.telefono,
+            whatsapp: n.whatsapp,
+            email: n.email,
+            web: n.web,
+            horario: n.horario,
+            rating: parseFloat(n.rating) || 0,
+            esTop: n.es_top,
+            esPatrocinado: n.es_patrocinado,
+            servicios: n.servicios || [],
+            redesSociales: n.redes_sociales || {}
+        }));
+
+        negociosData.eventos = (eventos || []).map(e => ({
+            id: e.id,
+            titulo: e.titulo,
+            descripcion: e.descripcion,
+            fecha: e.fecha,
+            hora: e.hora,
+            ubicacion: e.ubicacion,
+            imagen: e.imagen
+        }));
+
+        negociosData.promociones = (promociones || []).map(p => ({
+            id: p.id,
+            titulo: p.titulo,
+            descripcion: p.descripcion,
+            negocio_id: p.negocio_id,
+            fechaInicio: p.fecha_inicio,
+            fechaFin: p.fecha_fin,
+            imagen: p.imagen
+        }));
+
+        negociosData.noticias = (noticias || []).map(n => ({
+            id: n.id,
+            titulo: n.titulo,
+            resumen: n.resumen,
+            contenido: n.contenido,
+            fecha: n.fecha,
+            imagen: n.imagen
+        }));
+
+        if (config?.valor) {
+            negociosData.centroComercial = config.valor;
+        }
+
+        console.log('Datos cargados desde Supabase:', {
+            categorias: negociosData.categorias.length,
+            negocios: negociosData.negocios.length,
+            eventos: negociosData.eventos.length
+        });
+
+    } catch (error) {
+        console.error('Error cargando desde Supabase:', error);
+        // Fallback a JSON
+        await loadFromJSON();
+    }
+}
+
+// Cargar desde JSON local
+async function loadFromJSON() {
+    try {
+        const response = await fetch('data/negocios.json');
+        const data = await response.json();
+
+        negociosData.negocios = data.negocios || [];
+        negociosData.categorias = data.categorias || [];
+        negociosData.eventos = data.eventos || [];
+        negociosData.promociones = data.promociones || [];
+        negociosData.noticias = data.noticias || [];
+        negociosData.centroComercial = data.centroComercial || null;
+
+        console.log('Datos cargados desde JSON local');
+    } catch (error) {
+        console.error('Error cargando JSON:', error);
+    }
+}
+
+// =====================================================
+// RENDER: TOP NEGOCIOS (Patrocinados)
+// =====================================================
+
 function renderTopNegocios() {
     const container = document.getElementById('top-negocios-grid');
     if (!container) return;
 
     const topNegocios = negociosData.negocios.filter(n => n.esTop && n.esPatrocinado);
 
+    if (topNegocios.length === 0) {
+        container.innerHTML = '<p class="text-center text-gray-500 col-span-2">No hay negocios destacados disponibles.</p>';
+        return;
+    }
+
     container.innerHTML = topNegocios.map(negocio => `
         <div class="card-negocio bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border-2 border-secondary dark:border-amber-400 ring-4 ring-secondary/10 flex flex-col">
             <div class="h-48 relative overflow-hidden">
-                <img alt="${negocio.nombre}" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" src="${negocio.imagen}">
+                <img alt="${negocio.nombre}" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" src="${negocio.imagen}" onerror="this.src='https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800'">
                 <div class="absolute top-4 right-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full shadow flex items-center badge-sponsored">
                     <span class="material-icons text-sm mr-1">star</span>
                     TOP
@@ -53,7 +220,7 @@ function renderTopNegocios() {
                 </div>
                 <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">${negocio.descripcion}</p>
                 <div class="flex flex-wrap gap-2 mb-4">
-                    ${negocio.servicios.slice(0, 2).map(s => `
+                    ${(negocio.servicios || []).slice(0, 2).map(s => `
                         <span class="text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-2 py-1 rounded-full">${s}</span>
                     `).join('')}
                 </div>
@@ -75,7 +242,10 @@ function renderTopNegocios() {
     `).join('');
 }
 
-// Render Featured Businesses
+// =====================================================
+// RENDER: NEGOCIOS DESTACADOS
+// =====================================================
+
 function renderFeaturedNegocios() {
     const container = document.getElementById('featured-negocios-grid');
     if (!container) return;
@@ -111,20 +281,26 @@ function renderFeaturedNegocios() {
     `).join('');
 }
 
-// Render Events
+// =====================================================
+// RENDER: EVENTOS
+// =====================================================
+
 function renderEventos() {
     const container = document.getElementById('eventos-grid');
     if (!container) return;
 
+    if (negociosData.eventos.length === 0) {
+        container.innerHTML = '<p class="text-center text-gray-500 col-span-3">No hay eventos próximos.</p>';
+        return;
+    }
+
     container.innerHTML = negociosData.eventos.map(evento => {
         const fecha = new Date(evento.fecha);
-        const options = { day: 'numeric', month: 'short' };
-        const fechaFormateada = fecha.toLocaleDateString('es-GT', options);
 
         return `
             <div class="card-negocio bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-100 dark:border-gray-700">
                 <div class="h-40 relative overflow-hidden">
-                    <img alt="${evento.titulo}" class="w-full h-full object-cover" src="${evento.imagen}">
+                    <img alt="${evento.titulo}" class="w-full h-full object-cover" src="${evento.imagen}" onerror="this.src='https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800'">
                     <div class="absolute top-4 left-4 bg-primary text-white text-center rounded-lg px-3 py-2 shadow-lg">
                         <div class="text-2xl font-bold">${fecha.getDate()}</div>
                         <div class="text-xs uppercase">${fecha.toLocaleDateString('es-GT', { month: 'short' })}</div>
@@ -134,7 +310,7 @@ function renderEventos() {
                     <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">${evento.titulo}</h3>
                     <p class="text-gray-600 dark:text-gray-300 text-sm mb-3 line-clamp-2">${evento.descripcion}</p>
                     <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
-                        <span class="material-icons text-sm mr-1">schedule</span> ${evento.hora}
+                        <span class="material-icons text-sm mr-1">schedule</span> ${evento.hora || ''}
                         <span class="mx-2">|</span>
                         <span class="material-icons text-sm mr-1">place</span> ${evento.ubicacion}
                     </div>
@@ -144,10 +320,18 @@ function renderEventos() {
     }).join('');
 }
 
-// Render Promotions
+// =====================================================
+// RENDER: PROMOCIONES
+// =====================================================
+
 function renderPromociones() {
     const container = document.getElementById('promociones-grid');
     if (!container) return;
+
+    if (negociosData.promociones.length === 0) {
+        container.innerHTML = '<p class="text-center text-gray-500 col-span-3">No hay promociones activas.</p>';
+        return;
+    }
 
     container.innerHTML = negociosData.promociones.map(promo => {
         const negocio = negociosData.negocios.find(n => n.id === promo.negocio_id);
@@ -165,17 +349,25 @@ function renderPromociones() {
     }).join('');
 }
 
-// Render News
+// =====================================================
+// RENDER: NOTICIAS
+// =====================================================
+
 function renderNoticias() {
     const container = document.getElementById('noticias-grid');
     if (!container) return;
+
+    if (negociosData.noticias.length === 0) {
+        container.innerHTML = '<p class="text-center text-gray-500">No hay noticias recientes.</p>';
+        return;
+    }
 
     container.innerHTML = negociosData.noticias.map(noticia => {
         const fecha = new Date(noticia.fecha);
         return `
             <div class="card-negocio bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col md:flex-row">
                 <div class="md:w-1/3 h-48 md:h-auto">
-                    <img alt="${noticia.titulo}" class="w-full h-full object-cover" src="${noticia.imagen}">
+                    <img alt="${noticia.titulo}" class="w-full h-full object-cover" src="${noticia.imagen}" onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800'">
                 </div>
                 <div class="p-5 md:w-2/3 flex flex-col">
                     <span class="text-xs text-gray-500 dark:text-gray-400 mb-2">${fecha.toLocaleDateString('es-GT', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
@@ -190,7 +382,10 @@ function renderNoticias() {
     }).join('');
 }
 
-// Render Categories
+// =====================================================
+// RENDER: CATEGORÍAS
+// =====================================================
+
 function renderCategorias() {
     const container = document.getElementById('categorias-grid');
     if (!container) return;
@@ -204,7 +399,9 @@ function renderCategorias() {
 
     container.innerHTML = negociosData.categorias.map(cat => {
         const colors = colorMap[cat.color] || colorMap['primary'];
-        const count = negociosData.negocios.filter(n => n.categoria.toLowerCase() === cat.nombre.toLowerCase()).length;
+        const count = negociosData.negocios.filter(n =>
+            n.categoria.toLowerCase() === cat.nombre.toLowerCase()
+        ).length;
 
         return `
             <a href="#directorio" onclick="filterByCategory('${cat.nombre}')" class="category-pill group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-300 p-6 flex flex-col items-center justify-center border border-gray-100 dark:border-gray-700">
@@ -219,20 +416,56 @@ function renderCategorias() {
     }).join('');
 }
 
-// Filter by category
+// =====================================================
+// FILTRAR POR CATEGORÍA
+// =====================================================
+
 function filterByCategory(categoria) {
     currentFilter = categoria;
-    const allNegocios = document.querySelectorAll('.negocio-item');
-    allNegocios.forEach(item => {
-        if (categoria === 'all' || item.dataset.categoria.toLowerCase() === categoria.toLowerCase()) {
-            item.style.display = 'block';
-        } else {
-            item.style.display = 'none';
-        }
-    });
+    // Scroll al directorio
+    document.getElementById('directorio')?.scrollIntoView({ behavior: 'smooth' });
+
+    // Filtrar y re-renderizar
+    const container = document.getElementById('featured-negocios-grid');
+    if (!container) return;
+
+    const filtered = categoria === 'all'
+        ? negociosData.negocios.filter(n => !n.esPatrocinado).slice(0, 6)
+        : negociosData.negocios.filter(n => n.categoria.toLowerCase() === categoria.toLowerCase());
+
+    container.innerHTML = filtered.map(negocio => `
+        <div class="card-negocio bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col">
+            <div class="h-48 relative overflow-hidden">
+                <img alt="${negocio.nombre}" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" src="${negocio.imagen}" onerror="this.src='https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800'">
+                <div class="absolute top-4 right-4 bg-white/90 dark:bg-gray-900/90 text-xs font-bold px-2 py-1 rounded-full shadow text-gray-800 dark:text-gray-200 uppercase tracking-wider">
+                    ${negocio.categoria}
+                </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">${negocio.nombre}</h3>
+                    <span class="flex items-center text-yellow-400 text-sm">
+                        <span class="material-icons text-base mr-1">star</span> ${negocio.rating}
+                    </span>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">${negocio.descripcion}</p>
+                <div class="mt-auto flex items-center justify-between">
+                    <span class="text-sm text-gray-500 dark:text-gray-400 flex items-center">
+                        <span class="material-icons text-sm mr-1">place</span> ${negocio.nivel}, ${negocio.local}
+                    </span>
+                    <button onclick="openNegocioModal(${negocio.id})" class="text-primary font-medium text-sm hover:text-purple-700 dark:hover:text-purple-400 transition-colors">
+                        Ver más
+                    </button>
+                </div>
+            </div>
+        </div>
+    `).join('');
 }
 
-// Search functionality
+// =====================================================
+// BÚSQUEDA
+// =====================================================
+
 function initializeSearch() {
     const searchInput = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');
@@ -256,7 +489,7 @@ function initializeSearch() {
 
         if (results.length > 0) {
             searchResults.innerHTML = results.slice(0, 5).map(n => `
-                <a href="#" onclick="openNegocioModal(${n.id})" class="flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                <a href="#" onclick="openNegocioModal(${n.id}); return false;" class="flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
                     <img src="${n.imagen}" alt="${n.nombre}" class="w-12 h-12 rounded-lg object-cover mr-3" onerror="this.src='https://via.placeholder.com/48'">
                     <div>
                         <h4 class="font-medium text-gray-900 dark:text-white">${n.nombre}</h4>
@@ -271,7 +504,7 @@ function initializeSearch() {
         }
     });
 
-    // Close search results when clicking outside
+    // Cerrar resultados al hacer clic fuera
     document.addEventListener('click', (e) => {
         if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
             searchResults.classList.add('hidden');
@@ -279,7 +512,10 @@ function initializeSearch() {
     });
 }
 
-// Open business modal
+// =====================================================
+// MODAL DE NEGOCIO
+// =====================================================
+
 function openNegocioModal(id) {
     const negocio = negociosData.negocios.find(n => n.id === id);
     if (!negocio) return;
@@ -331,7 +567,7 @@ function openNegocioModal(id) {
             <div class="mb-6">
                 <h4 class="font-semibold text-gray-900 dark:text-white mb-3">Servicios</h4>
                 <div class="flex flex-wrap gap-2">
-                    ${negocio.servicios.map(s => `<span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm px-3 py-1 rounded-full">${s}</span>`).join('')}
+                    ${(negocio.servicios || []).map(s => `<span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm px-3 py-1 rounded-full">${s}</span>`).join('')}
                 </div>
             </div>
 
@@ -359,7 +595,10 @@ function closeNegocioModal() {
     document.body.style.overflow = 'auto';
 }
 
-// Scroll animations
+// =====================================================
+// ANIMACIONES DE SCROLL
+// =====================================================
+
 function initializeScrollAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -374,27 +613,37 @@ function initializeScrollAnimations() {
     });
 }
 
-// Dark mode toggle
+// =====================================================
+// MODO OSCURO
+// =====================================================
+
 function toggleDarkMode() {
     document.documentElement.classList.toggle('dark');
     localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
 }
 
-// Check saved dark mode preference
+// Cargar preferencia guardada
 if (localStorage.getItem('darkMode') === 'true') {
     document.documentElement.classList.add('dark');
 }
 
-// Mobile menu toggle
+// =====================================================
+// MENÚ MÓVIL
+// =====================================================
+
 function toggleMobileMenu() {
     const menu = document.getElementById('mobile-menu');
     menu.classList.toggle('open');
 }
 
-// Initialize on load
-document.addEventListener('DOMContentLoaded', loadData);
+// =====================================================
+// EVENTOS GLOBALES
+// =====================================================
 
-// Close modal on escape key
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', initializeApp);
+
+// Cerrar modal con tecla Escape
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeNegocioModal();

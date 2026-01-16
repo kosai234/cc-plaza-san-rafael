@@ -1,403 +1,516 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Plaza San Rafael Home</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-<script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              primary: "#6B21A8", // Purple from logo as main primary
-              secondary: "#F59E0B", // Yellow/Orange from logo
-              accent: "#10B981", // Green from logo
-              brandBlue: "#3B82F6", // Blue from logo
-              "background-light": "#FAFAFA",
-              "background-dark": "#121212",
-              "card-light": "#FFFFFF",
-              "card-dark": "#1E1E1E",
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plaza San Rafael - Tu centro comercial favorito en Guatemala. Descubre tiendas, restaurantes, eventos y promociones.">
+    <meta name="keywords" content="centro comercial, plaza san rafael, guatemala, tiendas, restaurantes, eventos">
+    <meta property="og:title" content="Plaza San Rafael - Centro Comercial">
+    <meta property="og:description" content="Tu destino para compras, comida y entretenimiento en Guatemala.">
+    <meta property="og:image" content="assets/images/logo.jpg">
+    <title>Plaza San Rafael - Centro Comercial</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#6B21A8",
+                        secondary: "#F59E0B",
+                        accent: "#10B981",
+                        brandBlue: "#3B82F6",
+                        "background-light": "#FAFAFA",
+                        "background-dark": "#121212",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1E1E1E",
+                    },
+                    fontFamily: {
+                        display: ["Poppins", "sans-serif"],
+                        sans: ["Poppins", "sans-serif"],
+                    },
+                },
             },
-            fontFamily: {
-              display: ["Poppins", "sans-serif"],
-              sans: ["Poppins", "sans-serif"],
-            },
-            borderRadius: {
-              DEFAULT: "0.75rem",
-              'xl': '1rem',
-              '2xl': '1.5rem',
-            },
-          },
-        },
-      };
+        };
     </script>
-<style>
-        .gradient-text {
-            background: linear-gradient(to right, #6B21A8, #F59E0B, #10B981);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero-pattern {
-             background-color: #FAFAFA;
-             background-image: radial-gradient(#6B21A8 0.5px, transparent 0.5px), radial-gradient(#6B21A8 0.5px, #FAFAFA 0.5px);
-             background-size: 20px 20px;
-             background-position: 0 0, 10px 10px;
-             opacity: 0.1;
-        }
-        .dark .hero-pattern {
-            background-color: #121212;
-            background-image: radial-gradient(#F59E0B 0.5px, transparent 0.5px), radial-gradient(#F59E0B 0.5px, #121212 0.5px);
-        }
-    </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 font-sans transition-colors duration-300">
-<nav class="sticky top-0 z-50 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex justify-between h-20 items-center">
-<div class="flex-shrink-0 flex items-center gap-3">
-<div class="h-10 w-10 relative flex items-center justify-center">
-<img alt="Plaza San Rafael Logo" class="h-10 w-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1auYZtPIOLCH_cQrdn3a4pkJZz1-PA-hL0HHob-UMkvY3m0-cl4O2nWf0NcC9Djz05S0aoxlCMpmJcqS1sOulGFUDfYfR2ypeYmfDed5d7Sm1h05dfgcZy7iQgu3WjbISPVAWMZcXiV9Zs8IJJr3yxgkHMMkQFjlsKA2G801tb4wa70nHpbGZdiipwf5RMBmfdIwVs3wR3si_TMW0KxRuUwBsWCMull1TJ2oaw-DLPB8MHkTg1e6DqOtI_bVYp3P4NGuBdmrjQ75X"/>
-<div class="absolute inset-0 flex flex-col items-center justify-center">
-<span class="material-icons text-3xl text-primary transform -rotate-12">local_mall</span>
-</div>
-</div>
-<span class="font-display font-bold text-2xl tracking-tight text-gray-900 dark:text-white">Plaza San Rafael</span>
-</div>
-<div class="hidden md:flex space-x-8">
-<a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#">Directory</a>
-<a class="text-gray-600 dark:text-gray-300 hover:text-secondary dark:hover:text-secondary px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#">Events</a>
-<a class="text-gray-600 dark:text-gray-300 hover:text-brandBlue dark:hover:text-brandBlue px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#">Promotions</a>
-<a class="text-gray-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#">About Us</a>
-</div>
-<div class="flex items-center space-x-4">
-<button class="p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition-colors">
-<span class="material-icons">search</span>
-</button>
-<button class="md:hidden p-2 rounded-md text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition-colors">
-<span class="material-icons">menu</span>
-</button>
-<button class="p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition-colors" onclick="document.documentElement.classList.toggle('dark')">
-<span class="material-icons dark:hidden">dark_mode</span>
-<span class="material-icons hidden dark:block">light_mode</span>
-</button>
-</div>
-</div>
-</div>
-</nav>
 
-<div id="top-banner" class="bg-blue-50 dark:bg-blue-900/10 p-4 transition-all duration-300 border-b border-blue-200 dark:border-blue-800">
-    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
-        <a href="#" class="flex items-center gap-4 group">
-            <div class="hidden sm:block">
-                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk6Z2_-_Y9b-a-b-C-d-E-f-G-h-I-j-K-l-M-n-O-p-Q-r-S-t-U-v-W-x-Y-z" alt="Ad placeholder" class="h-16 w-24 object-cover rounded-lg shadow-md group-hover:opacity-90 transition-opacity">
-            </div>
-            <div>
-                <h4 class="font-bold text-brandBlue dark:text-blue-300">Grand Opening!</h4>
-                <p class="text-sm text-gray-700 dark:text-gray-300">Visit the new 'Starlight Cafe' this weekend and get a free coffee!</p>
-            </div>
-        </a>
-        <button onclick="document.getElementById('top-banner').style.display='none'" class="p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-700 transition-colors">
-            <span class="material-icons">close</span>
-        </button>
-    </div>
-</div>
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <a href="#" class="flex-shrink-0 flex items-center gap-3">
+                    <img alt="Plaza San Rafael Logo" class="h-12 w-12 object-contain rounded-lg" src="assets/images/logo.jpg">
+                    <span class="font-display font-bold text-xl md:text-2xl tracking-tight text-gray-900 dark:text-white">Plaza San Rafael</span>
+                </a>
 
-<div class="relative overflow-hidden bg-background-light dark:bg-background-dark">
-<div class="absolute inset-0 hero-pattern z-0"></div>
-<div class="max-w-7xl mx-auto">
-<div class="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 bg-background-light dark:bg-background-dark lg:bg-transparent lg:dark:bg-transparent">
-<main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-<div class="sm:text-center lg:text-left">
-<h1 class="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
-<span class="block xl:inline">Experience the best of</span>
-<span class="block gradient-text">Shopping &amp; Lifestyle</span>
-</h1>
-<p class="mt-3 text-base text-gray-500 dark:text-gray-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                            Discover a vibrant community hub at Plaza San Rafael. From exclusive boutiques to delicious dining, find everything you love in one place.
-                        </p>
-<div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start gap-4">
-<div class="rounded-md shadow">
-<a class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-purple-800 md:py-4 md:text-lg transition-colors shadow-lg shadow-purple-500/30" href="#">
-                                    Explore Directory
-                                </a>
-</div>
-<div class="mt-3 sm:mt-0 sm:ml-3">
-<a class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-purple-100 hover:bg-purple-200 md:py-4 md:text-lg transition-colors dark:bg-gray-800 dark:text-purple-400 dark:hover:bg-gray-700" href="#">
-                                    View Events
-                                </a>
-</div>
-</div>
-</div>
-</main>
-</div>
-</div>
-<div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 overflow-hidden rounded-bl-[4rem]">
-<img alt="Modern shopping mall interior with people walking and bright lights" class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full transform hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYevSNTHoEWquBdDkSMJYj1DjIuZbWsJ5i3BM17JiM4oAoUPrpXLJsR70lji5skhHddZUrUenUv_2rvALU1_8R4GTwKeELaRjoOlcjX0RO2_Xjjjli6sZmAAUBVaEDJg30OdKivaQVIwrebmRFbIjRKM-ScwydsEqYf_Li8Kd_i894x2JP6BCz2kj6TixUpZZeXcnrHHsyOV-3YHfNNuWgN_Vmh1jX8PhjPOg215_ZNqBB485GlL0SYkhQYlpK5Px0D66gaTm2GWzW"/>
-<div class="absolute inset-0 bg-gradient-to-r from-background-light dark:from-background-dark via-transparent to-transparent lg:via-background-light/20 lg:dark:via-background-dark/20"></div>
-</div>
-</div>
-<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
-<div class="bg-card-light dark:bg-card-dark rounded-xl shadow-xl p-6 border border-gray-100 dark:border-gray-700 flex flex-col md:flex-row items-center gap-4">
-<div class="relative flex-grow w-full">
-<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-<span class="material-icons text-gray-400">search</span>
-</div>
-<input class="focus:ring-primary focus:border-primary block w-full pl-10 sm:text-sm border-gray-300 dark:border-gray-600 rounded-md bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white py-3" placeholder="Search for stores, restaurants, or services..." type="text"/>
-</div>
-<button class="w-full md:w-auto bg-brandBlue text-white px-8 py-3 rounded-md font-medium hover:bg-blue-600 transition-colors shadow-lg shadow-blue-500/30">
-                Find Store
-            </button>
-</div>
-</div>
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-<a class="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-300 p-6 flex flex-col items-center justify-center border border-gray-100 dark:border-gray-700" href="#">
-<div class="h-16 w-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-icons text-3xl text-primary">checkroom</span>
-</div>
-<h3 class="text-lg font-semibold text-gray-900 dark:text-white">Fashion</h3>
-<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Latest trends</p>
-<div class="absolute inset-x-0 bottom-0 h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
-</a>
-<a class="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-300 p-6 flex flex-col items-center justify-center border border-gray-100 dark:border-gray-700" href="#">
-<div class="h-16 w-16 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-icons text-3xl text-secondary">restaurant</span>
-</div>
-<h3 class="text-lg font-semibold text-gray-900 dark:text-white">Dining</h3>
-<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Taste the world</p>
-<div class="absolute inset-x-0 bottom-0 h-1 bg-secondary scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
-</a>
-<a class="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-300 p-6 flex flex-col items-center justify-center border border-gray-100 dark:border-gray-700" href="#">
-<div class="h-16 w-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-icons text-3xl text-accent">movie</span>
-</div>
-<h3 class="text-lg font-semibold text-gray-900 dark:text-white">Entertainment</h3>
-<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Fun for all</p>
-<div class="absolute inset-x-0 bottom-0 h-1 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
-</a>
-<a class="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-300 p-6 flex flex-col items-center justify-center border border-gray-100 dark:border-gray-700" href="#">
-<div class="h-16 w-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-icons text-3xl text-brandBlue">card_giftcard</span>
-</div>
-<h3 class="text-lg font-semibold text-gray-900 dark:text-white">Services</h3>
-<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Everything else</p>
-<div class="absolute inset-x-0 bottom-0 h-1 bg-brandBlue scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
-</a>
-</div>
-</div>
-<div class="bg-amber-50 dark:bg-amber-900/10 py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-end mb-10">
-            <div>
-                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Top Businesses</h2>
-                <p class="mt-2 text-gray-600 dark:text-gray-400">Paid partnerships with our top tenants</p>
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex space-x-6">
+                    <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#directorio">Directorio</a>
+                    <a class="text-gray-600 dark:text-gray-300 hover:text-secondary dark:hover:text-secondary px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#eventos">Eventos</a>
+                    <a class="text-gray-600 dark:text-gray-300 hover:text-brandBlue dark:hover:text-brandBlue px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#promociones">Promociones</a>
+                    <a class="text-gray-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#noticias">Noticias</a>
+                    <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#contacto">Contacto</a>
+                </div>
+
+                <!-- Actions -->
+                <div class="flex items-center space-x-2">
+                    <button onclick="toggleDarkMode()" class="p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition-colors">
+                        <span class="material-icons dark:hidden">dark_mode</span>
+                        <span class="material-icons hidden dark:block">light_mode</span>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-md text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition-colors">
+                        <span class="material-icons">menu</span>
+                    </button>
+                </div>
             </div>
-            <a class="hidden sm:inline-flex items-center text-secondary font-medium hover:underline" href="#">
-                Advertise with us <span class="material-icons text-sm ml-1">arrow_forward</span>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-white dark:bg-gray-900 z-50 lg:hidden">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <img alt="Logo" class="h-10 w-10 object-contain rounded-lg" src="assets/images/logo.jpg">
+                    <button onclick="toggleMobileMenu()" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+                        <span class="material-icons">close</span>
+                    </button>
+                </div>
+                <nav class="space-y-4">
+                    <a onclick="toggleMobileMenu()" href="#directorio" class="block text-lg font-medium text-gray-900 dark:text-white py-3 border-b border-gray-100 dark:border-gray-800">Directorio</a>
+                    <a onclick="toggleMobileMenu()" href="#eventos" class="block text-lg font-medium text-gray-900 dark:text-white py-3 border-b border-gray-100 dark:border-gray-800">Eventos</a>
+                    <a onclick="toggleMobileMenu()" href="#promociones" class="block text-lg font-medium text-gray-900 dark:text-white py-3 border-b border-gray-100 dark:border-gray-800">Promociones</a>
+                    <a onclick="toggleMobileMenu()" href="#noticias" class="block text-lg font-medium text-gray-900 dark:text-white py-3 border-b border-gray-100 dark:border-gray-800">Noticias</a>
+                    <a onclick="toggleMobileMenu()" href="#contacto" class="block text-lg font-medium text-gray-900 dark:text-white py-3 border-b border-gray-100 dark:border-gray-800">Contacto</a>
+                </nav>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Top Banner (Advertising Space) -->
+    <div id="top-banner" class="bg-gradient-to-r from-purple-600 to-blue-500 text-white p-3 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+            <a href="#promociones" class="flex items-center gap-4 group flex-1">
+                <span class="material-icons text-2xl animate-pulse">campaign</span>
+                <div>
+                    <span class="font-bold">Espacio Publicitario Premium</span>
+                    <span class="hidden sm:inline"> - Promociona tu negocio aqui</span>
+                </div>
             </a>
+            <button onclick="document.getElementById('top-banner').style.display='none'" class="p-1 rounded-full hover:bg-white/20 transition-colors">
+                <span class="material-icons text-sm">close</span>
+            </button>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    </div>
 
-            <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 border-2 border-secondary dark:border-amber-400 flex flex-col ring-4 ring-secondary/10">
-                <div class="h-48 relative overflow-hidden">
-                    <img alt="Gourmet Burger Restaurant" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy3-2s-d_k4g5-9-kY7-O1h8-Q-O9l-Y1w-J2w-O7v-L3m-E8n-C4g-R3o-S5t-F6u-E7i-H8o-I9p-A0a-B1c-D2e-F3g-H4i-J5k-L6m-N7o-P8q-R9s-T0u-V1w-X2y-Z3"/>
-                    <div class="absolute top-4 right-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full shadow flex items-center">
-                        <span class="material-icons text-sm mr-1">star</span>
-                        SPONSORED
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden bg-background-light dark:bg-background-dark">
+        <div class="absolute inset-0 hero-pattern z-0"></div>
+        <div class="max-w-7xl mx-auto">
+            <div class="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 bg-background-light dark:bg-background-dark lg:bg-transparent">
+                <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                    <div class="sm:text-center lg:text-left">
+                        <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
+                            <span class="block xl:inline">Bienvenido a</span>
+                            <span class="block gradient-text">Plaza San Rafael</span>
+                        </h1>
+                        <p class="mt-3 text-base text-gray-500 dark:text-gray-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                            Tu destino favorito para compras, gastronomia y entretenimiento. Descubre nuestros negocios, eventos y promociones exclusivas.
+                        </p>
+                        <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start gap-4">
+                            <div class="rounded-md shadow">
+                                <a class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-primary hover:bg-purple-700 md:py-4 md:text-lg transition-colors shadow-lg shadow-purple-500/30" href="#directorio">
+                                    <span class="material-icons mr-2">store</span> Ver Directorio
+                                </a>
+                            </div>
+                            <div class="mt-3 sm:mt-0">
+                                <a class="w-full flex items-center justify-center px-8 py-3 border-2 border-primary text-base font-medium rounded-lg text-primary bg-transparent hover:bg-primary hover:text-white md:py-4 md:text-lg transition-colors" href="#eventos">
+                                    <span class="material-icons mr-2">event</span> Eventos
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="p-6 flex-1 flex flex-col">
-                    <div class="flex items-center justify-between mb-2">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Gourmet Burger</h3>
-                        <span class="flex items-center text-yellow-400 text-sm"><span class="material-icons text-base mr-1">star</span> 5.0</span>
-                    </div>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">The best burgers in town, made with premium ingredients.</p>
-                    <div class="mt-auto flex items-center justify-between">
-                        <span class="text-sm text-gray-500 dark:text-gray-400 flex items-center"><span class="material-icons text-sm mr-1">place</span> Floor 2, F-01</span>
-                        <button class="text-secondary font-medium text-sm hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Visit Page</button>
-                    </div>
-                </div>
+                </main>
             </div>
+        </div>
+        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 overflow-hidden">
+            <img alt="Plaza San Rafael" class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?w=1200">
+            <div class="absolute inset-0 bg-gradient-to-r from-background-light dark:from-background-dark via-transparent to-transparent"></div>
+        </div>
+    </section>
 
-            <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 border-2 border-secondary dark:border-amber-400 flex flex-col ring-4 ring-secondary/10">
-                <div class="h-48 relative overflow-hidden">
-                    <img alt="Prestige Watches Storefront" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-P5s-I8l-A9m-N7o-P8q-R9s-T0u-V1w-X2y-Z3-aBc-dEf-gHi-jKl-mNo-pQr-sTu-vWx-yZ-1b-2c-3d-4e-5f-6g-7h-8i-9j-0k-1l-2m-3n-4o-5p-6q-7r-8s-9t-0u-1v-2w-3x-4y-5z"/>
-                    <div class="absolute top-4 right-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full shadow flex items-center">
-                        <span class="material-icons text-sm mr-1">star</span>
-                        SPONSORED
-                    </div>
+    <!-- Search Bar -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-4 md:p-6 border border-gray-100 dark:border-gray-700">
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <span class="material-icons text-gray-400">search</span>
                 </div>
-                <div class="p-6 flex-1 flex flex-col">
-                    <div class="flex items-center justify-between mb-2">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Prestige Watches</h3>
-                        <span class="flex items-center text-yellow-400 text-sm"><span class="material-icons text-base mr-1">star</span> 4.9</span>
-                    </div>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">Luxury watches from world-renowned brands. Timeless elegance.</p>
-                    <div class="mt-auto flex items-center justify-between">
-                        <span class="text-sm text-gray-500 dark:text-gray-400 flex items-center"><span class="material-icons text-sm mr-1">place</span> Floor 1, P-05</span>
-                        <button class="text-secondary font-medium text-sm hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Visit Page</button>
-                    </div>
-                </div>
+                <input id="search-input" class="block w-full pl-12 pr-4 py-3 md:py-4 text-sm md:text-base border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Buscar tiendas, restaurantes o servicios..." type="text">
+                <div id="search-results" class="hidden absolute top-full left-0 right-0 mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 max-h-80 overflow-y-auto z-50"></div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="bg-gray-50 dark:bg-[#18181b] py-16 transition-colors duration-300">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex justify-between items-end mb-10">
-<div>
-<h2 class="text-3xl font-bold text-gray-900 dark:text-white">Featured Businesses</h2>
-<p class="mt-2 text-gray-600 dark:text-gray-400">Highlighting our premier tenants this month</p>
-</div>
-<a class="hidden sm:inline-flex items-center text-primary font-medium hover:underline" href="#">
-                    View all stores <span class="material-icons text-sm ml-1">arrow_forward</span>
-</a>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<div class="bg-card-light dark:bg-card-dark rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700 flex flex-col">
-<div class="h-48 relative overflow-hidden">
-<img alt="Clothing Boutique Interior" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXqDfF0IayHBXImHdJPDkO29HvxWLd9rf7thu6nmTtN_IuKygJ7WzlMwaSi5eocvA261lB12873AwPz2d5b_w-TcMtgt1hyA4ZiTLeG3k9D3hPZ2fx2VRBLY4yu4q4fyxcDaVXlIOpWBITYfc8CTOdJuzftDJHbppVBQFDp_lLLAqnKlhIvNC3ioGVVQ0a7eHaeM3QMp2OXVchtq6pChAQxzwNzbHIrTmJmPjCQgxseKnbE2y2i70P-Aw3Wb33PbMBCMmDY10HmI8n"/>
-<div class="absolute top-4 right-4 bg-white dark:bg-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow text-gray-800 dark:text-gray-200 uppercase tracking-wider">Fashion</div>
-</div>
-<div class="p-6 flex-1 flex flex-col">
-<div class="flex items-center justify-between mb-2">
-<h3 class="text-xl font-bold text-gray-900 dark:text-white">Lumina Boutique</h3>
-<span class="flex items-center text-yellow-400 text-sm"><span class="material-icons text-base mr-1">star</span> 4.8</span>
-</div>
-<p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">Exclusive designer wear for the modern woman. Featuring summer collections.</p>
-<div class="mt-auto flex items-center justify-between">
-<span class="text-sm text-gray-500 dark:text-gray-400 flex items-center"><span class="material-icons text-sm mr-1">place</span> Floor 1, A-12</span>
-<button class="text-primary font-medium text-sm hover:text-purple-700 dark:hover:text-purple-400 transition-colors">Visit Page</button>
-</div>
-</div>
-</div>
-<div class="bg-card-light dark:bg-card-dark rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700 flex flex-col">
-<div class="h-48 relative overflow-hidden">
-<img alt="Gourmet Cafe Latte Art" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKQE1ed4xsfu2xpenQvbto8NAoeunm7M5Iwsj_rMebeciUurdpwKlFTd7uRTwMpiaSNSeQrokVHen7ujqT21CZPEedn_nNJZn_oDRYt2e0_I3EiMPWOQp7nQ7LSDhR3F5R-zYLNbw3p7R-vIxEvFTabZukAXjGRFW1kyEpxxoQxTVJQ_8IhDQc0vg08Ka-xEpj-ckS9eiFCQzL2lRw9GqfUEyHUVTJCCg37WWp9kUx5qiKVnFAXRCC232M2ZQuRR0C3xHQD_mzhU7b"/>
-<div class="absolute top-4 right-4 bg-white dark:bg-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow text-gray-800 dark:text-gray-200 uppercase tracking-wider">Cafe</div>
-</div>
-<div class="p-6 flex-1 flex flex-col">
-<div class="flex items-center justify-between mb-2">
-<h3 class="text-xl font-bold text-gray-900 dark:text-white">Bean &amp; Leaf</h3>
-<span class="flex items-center text-yellow-400 text-sm"><span class="material-icons text-base mr-1">star</span> 4.9</span>
-</div>
-<p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">Artisanal coffee and fresh pastries baked daily. Perfect spot for a quick break.</p>
-<div class="mt-auto flex items-center justify-between">
-<span class="text-sm text-gray-500 dark:text-gray-400 flex items-center"><span class="material-icons text-sm mr-1">place</span> Floor 2, K-04</span>
-<button class="text-primary font-medium text-sm hover:text-purple-700 dark:hover:text-purple-400 transition-colors">Visit Page</button>
-</div>
-</div>
-</div>
-<div class="bg-card-light dark:bg-card-dark rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700 flex flex-col">
-<div class="h-48 relative overflow-hidden">
-<img alt="Tech Gadgets Store" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6PrkZ-2fZiyrz5oi-I7B65bqwRcT_OhOrCbUMNqYdzzeJHBAyH03yTKtOz3lgkb3p9_Tw7XRkW21hKRtNQ_Q6E4f1d7_WUmdyHhHKgmURU7HSAy9UbeC_L0fuCqZVF75obrGWupiAeQOFUJmbvpA7nEXPp4WUA2rvZKdGRjvk72KfHD65hiKkA6_UNvJ2xOmMbBh5LIukehIoQ9JYdPvw3HSa93SsTD9dTf7lqR25DgVvadNf3YRuLL5q9NXJ7I8KhHsrkaa8xR-h"/>
-<div class="absolute top-4 right-4 bg-white dark:bg-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow text-gray-800 dark:text-gray-200 uppercase tracking-wider">Tech</div>
-</div>
-<div class="p-6 flex-1 flex flex-col">
-<div class="flex items-center justify-between mb-2">
-<h3 class="text-xl font-bold text-gray-900 dark:text-white">TechHub</h3>
-<span class="flex items-center text-yellow-400 text-sm"><span class="material-icons text-base mr-1">star</span> 4.6</span>
-</div>
-<p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">Latest gadgets, repairs, and accessories. Authorized retailer for top brands.</p>
-<div class="mt-auto flex items-center justify-between">
-<span class="text-sm text-gray-500 dark:text-gray-400 flex items-center"><span class="material-icons text-sm mr-1">place</span> Ground Floor, G-15</span>
-<button class="text-primary font-medium text-sm hover:text-purple-700 dark:hover:text-purple-400 transition-colors">Visit Page</button>
-</div>
-</div>
-</div>
-</div>
-<div class="mt-8 text-center sm:hidden">
-<a class="inline-flex items-center text-primary font-medium hover:underline" href="#">
-                    View all stores <span class="material-icons text-sm ml-1">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Exclusive Promotions</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<div class="relative rounded-2xl overflow-hidden group h-64 md:h-80 shadow-lg">
-<img alt="Sale tags and shopping bags" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIFascVHPX9l6yqQQ6ThTmnIlu3PoCka9Fa-Di4DhjDlGLNvbZrDN95kr_BYR2se11bw42U1VEfodjv02q9ckutFsUBYsQGgqR8uPVTdOuZk77eR6PrdyndjAwc-u0XbwzVVsnU6hgLZIgS2lhlShl7hJK3MJiFjjHZ2Shi9jGb8BJjEL6nwZonZsb9rog5DinxCxjhyYywQwfKImqdvBBUCNRkHT3qLTm1H1F47q16NMf0miuL6_aIJi7Usv6Yq3YkeNj32pMoyd0"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-8">
-<span class="bg-secondary text-white text-xs font-bold px-2 py-1 rounded uppercase tracking-wide w-max mb-2">Limited Time</span>
-<h3 class="text-2xl md:text-3xl font-bold text-white mb-2">Summer Sale</h3>
-<p class="text-gray-200 mb-4">Up to 50% off on selected fashion brands.</p>
-<a class="text-white underline decoration-accent decoration-2 underline-offset-4 font-medium hover:text-accent transition-colors" href="#">See Details</a>
-</div>
-</div>
-<div class="relative rounded-2xl overflow-hidden group h-64 md:h-80 shadow-lg">
-<img alt="Restaurant dining table with food" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9EQtYAXL19Co3IMtQfObtRi6rKbpLAqegBWXsk7AoegoFVi2KxwQn2e_OIZ8ciNuG0wJ8bDa1XoaoGiZe7voOyg_7nvwMuHBugBuGKmE48qpP7fgvtvcKvJf4XCkADcJXHkhgzLmCMaaNmg_fzlicmHUapJpSWKFnLBldiS7eJNb_Dc94YiMAZdbqkC8PXnJtGuodEkfiZm59iPsCywwmQcMWGfm6G9lSS63QqHxkpn6waIaW72RMAZSCVgvqQ7thP3pw6Kgn70d9"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-8">
-<span class="bg-brandBlue text-white text-xs font-bold px-2 py-1 rounded uppercase tracking-wide w-max mb-2">Dining Deal</span>
-<h3 class="text-2xl md:text-3xl font-bold text-white mb-2">Family Weekend Feast</h3>
-<p class="text-gray-200 mb-4">Kids eat free at participating restaurants.</p>
-<a class="text-white underline decoration-brandBlue decoration-2 underline-offset-4 font-medium hover:text-brandBlue transition-colors" href="#">Find Restaurants</a>
-</div>
-</div>
-</div>
-</div>
-<div class="bg-primary/5 dark:bg-primary/10 py-16">
-<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-<span class="material-icons text-5xl text-primary mb-4">mail_outline</span>
-<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Stay in the loop</h2>
-<p class="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">Subscribe to our newsletter to receive the latest updates, event invitations, and exclusive promotions directly to your inbox.</p>
-<form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-<input class="flex-grow rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white focus:ring-primary focus:border-primary py-3 px-4" placeholder="Your email address" type="email"/>
-<button class="bg-primary hover:bg-purple-800 text-white font-medium py-3 px-6 rounded-lg transition-colors shadow-lg shadow-purple-500/30" type="button">Subscribe</button>
-</form>
-</div>
-</div>
-<footer class="bg-card-light dark:bg-card-dark border-t border-gray-200 dark:border-gray-800 pt-16 pb-8">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
-<div class="col-span-1 md:col-span-1">
-<div class="flex items-center gap-2 mb-4">
-<span class="material-icons text-primary">local_mall</span>
-<span class="font-display font-bold text-xl text-gray-900 dark:text-white">Plaza San Rafael</span>
-</div>
-<p class="text-gray-500 dark:text-gray-400 text-sm mb-6">
-                        Your destination for shopping, dining, and entertainment. Join us for an unforgettable experience.
+    <!-- Categories -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Explora por Categoria</h2>
+            <p class="mt-2 text-gray-600 dark:text-gray-400">Encuentra lo que buscas rapidamente</p>
+        </div>
+        <div id="categorias-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
+            <!-- Categories will be loaded dynamically -->
+        </div>
+    </section>
+
+    <!-- Top Businesses (Sponsored) -->
+    <section id="top-negocios" class="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/10 dark:to-orange-900/10 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
+                <div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="material-icons text-secondary">workspace_premium</span>
+                        <span class="text-secondary font-semibold text-sm uppercase tracking-wide">Destacados</span>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Top Negocios</h2>
+                    <p class="mt-2 text-gray-600 dark:text-gray-400">Nuestros socios comerciales destacados</p>
+                </div>
+                <a class="inline-flex items-center text-secondary font-medium hover:underline" href="#contacto">
+                    <span class="material-icons mr-1">ads_click</span> Anunciate aqui
+                </a>
+            </div>
+            <div id="top-negocios-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Top businesses will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Advertising Space -->
+    <section class="bg-gradient-to-r from-primary via-brandBlue to-accent py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-white">
+                <div class="flex items-center gap-4">
+                    <span class="material-icons text-4xl">storefront</span>
+                    <div>
+                        <h3 class="text-xl font-bold">Espacio para Banner Publicitario</h3>
+                        <p class="text-white/80">Tu negocio puede aparecer aqui. Contactanos para mas informacion.</p>
+                    </div>
+                </div>
+                <a href="#contacto" class="bg-white text-primary font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors flex items-center">
+                    <span class="material-icons mr-2">contact_mail</span> Contactar
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Businesses -->
+    <section id="directorio" class="bg-gray-50 dark:bg-gray-900/50 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Directorio de Negocios</h2>
+                    <p class="mt-2 text-gray-600 dark:text-gray-400">Descubre todos nuestros locales</p>
+                </div>
+                <a class="hidden sm:inline-flex items-center text-primary font-medium hover:underline" href="#">
+                    Ver todos <span class="material-icons text-sm ml-1">arrow_forward</span>
+                </a>
+            </div>
+            <div id="featured-negocios-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- Featured businesses will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="eventos" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
+                <div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="material-icons text-primary">celebration</span>
+                        <span class="text-primary font-semibold text-sm uppercase tracking-wide">Proximamente</span>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Eventos</h2>
+                    <p class="mt-2 text-gray-600 dark:text-gray-400">No te pierdas lo que viene en Plaza San Rafael</p>
+                </div>
+            </div>
+            <div id="eventos-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Events will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotions Section -->
+    <section id="promociones" class="bg-gray-50 dark:bg-gray-900/50 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Promociones Exclusivas</h2>
+                <p class="mt-2 text-gray-600 dark:text-gray-400">Aprovecha las mejores ofertas de nuestros negocios</p>
+            </div>
+            <div id="promociones-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- Promotions will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed Section -->
+    <section class="py-16 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/10 dark:to-pink-900/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <div class="flex items-center justify-center gap-2 mb-4">
+                    <div class="instagram-placeholder w-10 h-10 rounded-xl flex items-center justify-center">
+                        <span class="material-icons text-white">camera_alt</span>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900 dark:text-white">@plazasanrafael</span>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Siguenos en Instagram</h2>
+                <p class="mt-2 text-gray-600 dark:text-gray-400">Enterate de todo lo que pasa en Plaza San Rafael</p>
+            </div>
+
+            <!-- Instagram Embed Placeholder -->
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 text-center border border-gray-200 dark:border-gray-700">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                    <div class="aspect-square bg-gradient-to-br from-purple-200 to-pink-200 dark:from-purple-800 dark:to-pink-800 rounded-xl flex items-center justify-center">
+                        <span class="material-icons text-4xl text-purple-500 dark:text-purple-300">photo_camera</span>
+                    </div>
+                    <div class="aspect-square bg-gradient-to-br from-orange-200 to-yellow-200 dark:from-orange-800 dark:to-yellow-800 rounded-xl flex items-center justify-center">
+                        <span class="material-icons text-4xl text-orange-500 dark:text-orange-300">restaurant</span>
+                    </div>
+                    <div class="aspect-square bg-gradient-to-br from-green-200 to-teal-200 dark:from-green-800 dark:to-teal-800 rounded-xl flex items-center justify-center">
+                        <span class="material-icons text-4xl text-green-500 dark:text-green-300">shopping_bag</span>
+                    </div>
+                    <div class="aspect-square bg-gradient-to-br from-blue-200 to-indigo-200 dark:from-blue-800 dark:to-indigo-800 rounded-xl flex items-center justify-center">
+                        <span class="material-icons text-4xl text-blue-500 dark:text-blue-300">celebration</span>
+                    </div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">El feed de Instagram se mostrara aqui cuando el sitio este en produccion</p>
+                <a href="https://instagram.com/plazasanrafael" target="_blank" class="inline-flex items-center bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white font-medium px-6 py-3 rounded-lg hover:opacity-90 transition-opacity">
+                    <span class="material-icons mr-2">open_in_new</span> Seguir en Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="noticias" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Noticias</h2>
+                    <p class="mt-2 text-gray-600 dark:text-gray-400">Mantente informado de las novedades</p>
+                </div>
+            </div>
+            <div id="noticias-grid" class="space-y-6">
+                <!-- News will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="bg-primary/5 dark:bg-primary/10 py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="material-icons text-5xl text-primary mb-4">mail_outline</span>
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Suscribete a nuestro boletin</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">Recibe las ultimas noticias, invitaciones a eventos y promociones exclusivas directamente en tu correo.</p>
+            <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                <input class="flex-grow rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white focus:ring-primary focus:border-primary py-3 px-4" placeholder="Tu correo electronico" type="email">
+                <button class="bg-primary hover:bg-purple-700 text-white font-medium py-3 px-6 rounded-lg transition-colors shadow-lg shadow-purple-500/30 flex items-center justify-center" type="button">
+                    <span class="material-icons mr-2">send</span> Suscribirse
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Visitanos</h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8">Estamos ubicados en una zona de facil acceso. Ven a conocer todo lo que Plaza San Rafael tiene para ti.</p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <span class="material-icons text-primary">place</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Direccion</h4>
+                                <p class="text-gray-600 dark:text-gray-400">Km 7.5 Carretera al Atlantico, Zona 18<br>Ciudad de Guatemala, Guatemala</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <span class="material-icons text-accent">phone</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Telefono</h4>
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    <a href="tel:+50225058000" class="hover:text-primary">+502 2505-8000</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <span class="material-icons text-secondary">email</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Correo</h4>
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    <a href="mailto:info@plazasanrafael.com.gt" class="hover:text-primary">info@plazasanrafael.com.gt</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-brandBlue/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <span class="material-icons text-brandBlue">schedule</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Horario</h4>
+                                <p class="text-gray-600 dark:text-gray-400">Lunes a Domingo: 10:00 - 21:00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="mt-8">
+                        <h4 class="font-semibold text-gray-900 dark:text-white mb-4">Siguenos</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://facebook.com/plazasanrafael" target="_blank" class="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center hover:bg-blue-700 transition-colors">
+                                <span class="material-icons">facebook</span>
+                            </a>
+                            <a href="https://instagram.com/plazasanrafael" target="_blank" class="w-12 h-12 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 text-white rounded-xl flex items-center justify-center hover:opacity-90 transition-opacity">
+                                <span class="material-icons">camera_alt</span>
+                            </a>
+                            <a href="https://tiktok.com/@plazasanrafael" target="_blank" class="w-12 h-12 bg-black text-white rounded-xl flex items-center justify-center hover:bg-gray-800 transition-colors">
+                                <span class="material-icons">music_note</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Placeholder -->
+                <div class="map-container rounded-2xl overflow-hidden h-96 lg:h-auto min-h-[400px] flex items-center justify-center">
+                    <div class="text-center p-8">
+                        <span class="material-icons text-6xl text-primary/50 mb-4">map</span>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Mapa interactivo de Google Maps<br>se mostrara aqui en produccion</p>
+                        <a href="https://maps.google.com/?q=Plaza+San+Rafael+Guatemala" target="_blank" class="inline-flex items-center bg-primary text-white font-medium px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors">
+                            <span class="material-icons mr-2">directions</span> Ver en Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <img alt="Plaza San Rafael Logo" class="h-12 w-12 object-contain rounded-lg" src="assets/images/logo.jpg">
+                        <span class="font-display font-bold text-xl">Plaza San Rafael</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6">
+                        Tu destino para compras, gastronomia y entretenimiento en Guatemala.
                     </p>
-<div class="flex space-x-4">
-<a class="text-gray-400 hover:text-primary transition-colors" href="#"><span class="material-icons">facebook</span></a>
-<a class="text-gray-400 hover:text-secondary transition-colors" href="#"><span class="material-icons">camera_alt</span></a>
-<a class="text-gray-400 hover:text-brandBlue transition-colors" href="#"><span class="material-icons">alternate_email</span></a>
-</div>
-</div>
-<div>
-<h3 class="text-sm font-semibold text-gray-900 dark:text-white tracking-wider uppercase mb-4">Mall Info</h3>
-<ul class="space-y-3">
-<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors text-sm" href="#">About Us</a></li>
-<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors text-sm" href="#">Directions &amp; Parking</a></li>
-<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors text-sm" href="#">Opening Hours</a></li>
-<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors text-sm" href="#">Mall Map</a></li>
-</ul>
-</div>
-<div>
-<h3 class="text-sm font-semibold text-gray-900 dark:text-white tracking-wider uppercase mb-4">Tenants</h3>
-<ul class="space-y-3">
-<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors text-sm" href="#">Leasing Information</a></li>
-<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors text-sm" href="#">Tenant Portal</a></li>
-<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors text-sm" href="#">Advertising</a></li>
-</ul>
-</div>
-<div>
-<h3 class="text-sm font-semibold text-gray-900 dark:text-white tracking-wider uppercase mb-4">Contact</h3>
-<ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
-<li class="flex items-start"><span class="material-icons text-sm mr-2 mt-0.5 text-accent">place</span> 123 Shopping Ave, San Rafael, CA</li>
-<li class="flex items-center"><span class="material-icons text-sm mr-2 text-accent">phone</span> +1 (555) 123-4567</li>
-<li class="flex items-center"><span class="material-icons text-sm mr-2 text-accent">email</span> info@plazasanrafael.com</li>
-</ul>
-</div>
-</div>
-<div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800 text-center text-sm text-gray-500 dark:text-gray-400">
-<p>© 2023 Plaza San Rafael. All rights reserved.</p>
-</div>
-</div>
-</footer>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
+                            <span class="material-icons text-sm">facebook</span>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-pink-500 transition-colors">
+                            <span class="material-icons text-sm">camera_alt</span>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
+                            <span class="material-icons text-sm">music_note</span>
+                        </a>
+                    </div>
+                </div>
 
-</body></html>
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Enlaces</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#directorio" class="hover:text-primary transition-colors">Directorio</a></li>
+                        <li><a href="#eventos" class="hover:text-primary transition-colors">Eventos</a></li>
+                        <li><a href="#promociones" class="hover:text-primary transition-colors">Promociones</a></li>
+                        <li><a href="#noticias" class="hover:text-primary transition-colors">Noticias</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Servicios</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-center"><span class="material-icons text-sm mr-2 text-accent">check_circle</span> Estacionamiento gratuito</li>
+                        <li class="flex items-center"><span class="material-icons text-sm mr-2 text-accent">check_circle</span> WiFi gratis</li>
+                        <li class="flex items-center"><span class="material-icons text-sm mr-2 text-accent">check_circle</span> Seguridad 24/7</li>
+                        <li class="flex items-center"><span class="material-icons text-sm mr-2 text-accent">check_circle</span> Cajeros automaticos</li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Contacto</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li class="flex items-start">
+                            <span class="material-icons text-sm mr-2 mt-0.5 text-accent">place</span>
+                            Km 7.5 Carretera al Atlantico,<br>Zona 18, Guatemala
+                        </li>
+                        <li class="flex items-center">
+                            <span class="material-icons text-sm mr-2 text-accent">phone</span>
+                            <a href="tel:+50225058000" class="hover:text-primary">+502 2505-8000</a>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="material-icons text-sm mr-2 text-accent">email</span>
+                            <a href="mailto:info@plazasanrafael.com.gt" class="hover:text-primary">info@plazasanrafael.com.gt</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom -->
+            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                <p>&copy; 2026 Plaza San Rafael. Todos los derechos reservados.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-primary transition-colors">Terminos y condiciones</a>
+                    <a href="#" class="hover:text-primary transition-colors">Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Business Modal -->
+    <div id="negocio-modal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 items-center justify-center p-4" onclick="if(event.target === this) closeNegocioModal()">
+        <div id="negocio-modal-content" class="bg-white dark:bg-gray-800 rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+            <!-- Content will be loaded dynamically -->
+        </div>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/50225058000" target="_blank" class="whatsapp-float bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg shadow-green-500/30 transition-colors">
+        <span class="material-icons text-2xl">chat</span>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+</body>
+</html>

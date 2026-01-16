@@ -1,0 +1,228 @@
+/* Plaza San Rafael - Custom Styles */
+
+/* Gradient text effect */
+.gradient-text {
+    background: linear-gradient(135deg, #6B21A8 0%, #F59E0B 50%, #10B981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Hero pattern */
+.hero-pattern {
+    background-color: #FAFAFA;
+    background-image: radial-gradient(#6B21A8 0.5px, transparent 0.5px), radial-gradient(#6B21A8 0.5px, #FAFAFA 0.5px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    opacity: 0.1;
+}
+
+.dark .hero-pattern {
+    background-color: #121212;
+    background-image: radial-gradient(#F59E0B 0.5px, transparent 0.5px), radial-gradient(#F59E0B 0.5px, #121212 0.5px);
+}
+
+/* Sponsored badge pulse */
+@keyframes pulse-badge {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.badge-sponsored {
+    animation: pulse-badge 2s ease-in-out infinite;
+}
+
+/* Card hover effects */
+.card-negocio {
+    transition: all 0.3s ease;
+}
+
+.card-negocio:hover {
+    transform: translateY(-8px);
+}
+
+/* Scroll animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Banner slider */
+.banner-slider {
+    display: flex;
+    animation: slide 20s linear infinite;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.banner-slider:hover {
+    animation-play-state: paused;
+}
+
+/* Top business ring effect */
+.ring-top {
+    position: relative;
+}
+
+.ring-top::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, #F59E0B, #6B21A8, #10B981);
+    z-index: -1;
+    animation: ring-rotate 3s linear infinite;
+}
+
+@keyframes ring-rotate {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+/* Instagram feed placeholder */
+.instagram-placeholder {
+    background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+/* Mobile menu animation */
+.mobile-menu {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu.open {
+    transform: translateX(0);
+}
+
+/* Search modal */
+.search-modal {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.search-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Category pills */
+.category-pill {
+    transition: all 0.2s ease;
+}
+
+.category-pill:hover {
+    transform: scale(1.05);
+}
+
+.category-pill.active {
+    transform: scale(1.1);
+}
+
+/* Line clamp utilities */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6B21A8;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #5b1a91;
+}
+
+/* Floating WhatsApp button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 100;
+    animation: bounce-soft 2s ease-in-out infinite;
+}
+
+@keyframes bounce-soft {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+/* Loading skeleton */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+}
+
+.dark .skeleton {
+    background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%);
+    background-size: 200% 100%;
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Tab navigation */
+.tab-nav {
+    position: relative;
+}
+
+.tab-nav::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: #6B21A8;
+    transition: all 0.3s ease;
+}
+
+/* Promo countdown */
+.countdown-item {
+    background: rgba(107, 33, 168, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+/* Map placeholder */
+.map-container {
+    background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+}
+
+.dark .map-container {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+}

@@ -1,0 +1,331 @@
+{
+  "negocios": [
+    {
+      "id": 1,
+      "nombre": "Apomedix",
+      "categoria": "Salud",
+      "descripcion": "Clínica y farmacia en un mismo lugar. Atención médica de calidad para todas las edades.",
+      "imagen": "assets/images/negocios/apomedix.png",
+      "local": "Local 15",
+      "nivel": "Nivel 1",
+      "telefono": "+502 3005-0800",
+      "whatsapp": "+502 3005-0800",
+      "email": "info@apomedix.com.gt",
+      "web": "https://apomedix.com.gt",
+      "horario": "Lunes a Sábado: 8:00 - 20:00 | Domingo: 9:00 - 14:00",
+      "rating": 4.9,
+      "esTop": true,
+      "esPatrocinado": true,
+      "servicios": ["Consulta médica Q40", "Farmacia", "Laboratorio clínico"],
+      "redesSociales": {
+        "facebook": "https://facebook.com/apomedix",
+        "instagram": "https://instagram.com/apomedix"
+      }
+    },
+    {
+      "id": 2,
+      "nombre": "Taco Bell",
+      "categoria": "Restaurantes",
+      "descripcion": "Deliciosa comida mexicana rápida. Nuevas Carnitas disponibles por tiempo limitado.",
+      "imagen": "assets/images/negocios/tacobell.png",
+      "local": "Local 25",
+      "nivel": "Food Court - Nivel 2",
+      "telefono": "+502 2389-4500",
+      "whatsapp": "+502 5555-1234",
+      "email": "contacto@tacobell.com.gt",
+      "web": "https://tacobell.com.gt",
+      "horario": "Lunes a Domingo: 10:00 - 21:00",
+      "rating": 4.7,
+      "esTop": true,
+      "esPatrocinado": true,
+      "servicios": ["Para llevar", "Delivery", "Comer en local"],
+      "redesSociales": {
+        "facebook": "https://facebook.com/tacobellgt",
+        "instagram": "https://instagram.com/tacobellgt"
+      }
+    },
+    {
+      "id": 3,
+      "nombre": "Veterinaria Marveliz",
+      "categoria": "Mascotas",
+      "descripcion": "Clínica veterinaria, estética animal y pet shop. Cuidamos la salud y bienestar de tu mascota.",
+      "imagen": "assets/images/negocios/veterinaria-marveliz.png",
+      "local": "Local 39",
+      "nivel": "Nivel 1",
+      "telefono": "+502 5737-5151",
+      "whatsapp": "+502 5737-5151",
+      "email": "marveliz.vet@gmail.com",
+      "web": null,
+      "horario": "Lunes a Sábado: 9:00 - 18:00",
+      "rating": 4.8,
+      "esTop": false,
+      "esPatrocinado": false,
+      "servicios": ["Clínica veterinaria", "Estética animal", "Pet shop"],
+      "redesSociales": {
+        "facebook": "https://facebook.com/veterinariamarveliz",
+        "instagram": "https://instagram.com/veterinariamarveliz"
+      }
+    },
+    {
+      "id": 4,
+      "nombre": "Café El Refugio",
+      "categoria": "Cafeterías",
+      "descripcion": "El mejor café artesanal de Guatemala. Granos de origen con el sabor de nuestras tierras.",
+      "imagen": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800",
+      "local": "Local 8",
+      "nivel": "Nivel 1",
+      "telefono": "+502 4521-8890",
+      "whatsapp": "+502 4521-8890",
+      "email": "hola@cafeelrefugio.gt",
+      "web": "https://cafeelrefugio.gt",
+      "horario": "Lunes a Domingo: 7:00 - 20:00",
+      "rating": 4.9,
+      "esTop": false,
+      "esPatrocinado": false,
+      "servicios": ["Café para llevar", "Postres artesanales", "WiFi gratis"],
+      "redesSociales": {
+        "facebook": "https://facebook.com/cafeelrefugio",
+        "instagram": "https://instagram.com/cafeelrefugio"
+      }
+    },
+    {
+      "id": 5,
+      "nombre": "Óptica Visión Plus",
+      "categoria": "Salud",
+      "descripcion": "Exámenes de la vista, lentes de contacto y monturas de las mejores marcas.",
+      "imagen": "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=800",
+      "local": "Local 12",
+      "nivel": "Nivel 1",
+      "telefono": "+502 2301-4455",
+      "whatsapp": "+502 3012-9988",
+      "email": "citas@visionplus.gt",
+      "web": "https://visionplus.com.gt",
+      "horario": "Lunes a Sábado: 9:00 - 19:00",
+      "rating": 4.6,
+      "esTop": false,
+      "esPatrocinado": false,
+      "servicios": ["Examen de la vista", "Lentes de contacto", "Reparaciones"],
+      "redesSociales": {
+        "facebook": "https://facebook.com/visionplusgt",
+        "instagram": "https://instagram.com/visionplusgt"
+      }
+    },
+    {
+      "id": 6,
+      "nombre": "Deportes Total",
+      "categoria": "Tiendas",
+      "descripcion": "Todo en artículos deportivos, calzado y ropa de las mejores marcas.",
+      "imagen": "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=800",
+      "local": "Local 33-34",
+      "nivel": "Nivel 2",
+      "telefono": "+502 2456-7890",
+      "whatsapp": "+502 5678-1234",
+      "email": "ventas@deportestotal.gt",
+      "web": "https://deportestotal.com.gt",
+      "horario": "Lunes a Domingo: 10:00 - 20:00",
+      "rating": 4.5,
+      "esTop": true,
+      "esPatrocinado": false,
+      "servicios": ["Calzado deportivo", "Ropa fitness", "Accesorios"],
+      "redesSociales": {
+        "facebook": "https://facebook.com/deportestotalgt",
+        "instagram": "https://instagram.com/deportestotalgt"
+      }
+    },
+    {
+      "id": 7,
+      "nombre": "Salón Belleza Divina",
+      "categoria": "Belleza",
+      "descripcion": "Servicios de peluquería, manicure, pedicure y tratamientos faciales.",
+      "imagen": "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800",
+      "local": "Local 18",
+      "nivel": "Nivel 2",
+      "telefono": "+502 4123-5566",
+      "whatsapp": "+502 4123-5566",
+      "email": "citas@bellezadivina.gt",
+      "web": null,
+      "horario": "Martes a Sábado: 9:00 - 19:00",
+      "rating": 4.8,
+      "esTop": false,
+      "esPatrocinado": false,
+      "servicios": ["Cortes de cabello", "Manicure y pedicure", "Tratamientos faciales"],
+      "redesSociales": {
+        "facebook": "https://facebook.com/bellezadivinagt",
+        "instagram": "https://instagram.com/bellezadivinagt"
+      }
+    },
+    {
+      "id": 8,
+      "nombre": "Banco Industrial",
+      "categoria": "Servicios",
+      "descripcion": "Agencia bancaria con todos los servicios financieros que necesitas.",
+      "imagen": "https://images.unsplash.com/photo-1541354329998-f4d9a9f9297f?w=800",
+      "local": "Local 1-2",
+      "nivel": "Nivel 1",
+      "telefono": "+502 2338-6868",
+      "whatsapp": null,
+      "email": null,
+      "web": "https://bi.com.gt",
+      "horario": "Lunes a Viernes: 9:00 - 17:00 | Sábado: 9:00 - 13:00",
+      "rating": 4.2,
+      "esTop": false,
+      "esPatrocinado": false,
+      "servicios": ["Cuentas bancarias", "Préstamos", "Cajeros automáticos"],
+      "redesSociales": {
+        "facebook": "https://facebook.com/bancoindustrial",
+        "instagram": "https://instagram.com/bancoindustrial"
+      }
+    },
+    {
+      "id": 9,
+      "nombre": "Pollo Campero",
+      "categoria": "Restaurantes",
+      "descripcion": "El sabor de Guatemala. Pollo frito, campechano y mucho más.",
+      "imagen": "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=800",
+      "local": "Local 22",
+      "nivel": "Food Court - Nivel 2",
+      "telefono": "+502 2500-2500",
+      "whatsapp": "+502 5500-2500",
+      "email": "servicio@campero.com.gt",
+      "web": "https://campero.com",
+      "horario": "Lunes a Domingo: 10:00 - 21:00",
+      "rating": 4.6,
+      "esTop": false,
+      "esPatrocinado": false,
+      "servicios": ["Para llevar", "Delivery", "Comer en local"],
+      "redesSociales": {
+        "facebook": "https://facebook.com/pollocampero",
+        "instagram": "https://instagram.com/pollocampero"
+      }
+    },
+    {
+      "id": 10,
+      "nombre": "TechZone",
+      "categoria": "Tecnología",
+      "descripcion": "Celulares, accesorios, computadoras y todo en tecnología.",
+      "imagen": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800",
+      "local": "Local 28",
+      "nivel": "Nivel 2",
+      "telefono": "+502 2478-9012",
+      "whatsapp": "+502 4012-3456",
+      "email": "ventas@techzone.gt",
+      "web": "https://techzone.com.gt",
+      "horario": "Lunes a Domingo: 10:00 - 20:00",
+      "rating": 4.4,
+      "esTop": false,
+      "esPatrocinado": true,
+      "servicios": ["Venta de celulares", "Reparaciones", "Accesorios"],
+      "redesSociales": {
+        "facebook": "https://facebook.com/techzonegt",
+        "instagram": "https://instagram.com/techzonegt"
+      }
+    }
+  ],
+  "categorias": [
+    {"id": "restaurantes", "nombre": "Restaurantes", "icono": "restaurant", "color": "secondary"},
+    {"id": "salud", "nombre": "Salud", "icono": "local_hospital", "color": "accent"},
+    {"id": "tiendas", "nombre": "Tiendas", "icono": "shopping_bag", "color": "primary"},
+    {"id": "cafeterias", "nombre": "Cafeterías", "icono": "local_cafe", "color": "secondary"},
+    {"id": "mascotas", "nombre": "Mascotas", "icono": "pets", "color": "brandBlue"},
+    {"id": "belleza", "nombre": "Belleza", "icono": "spa", "color": "primary"},
+    {"id": "servicios", "nombre": "Servicios", "icono": "account_balance", "color": "brandBlue"},
+    {"id": "tecnologia", "nombre": "Tecnología", "icono": "devices", "color": "accent"}
+  ],
+  "eventos": [
+    {
+      "id": 1,
+      "titulo": "Inauguración Zona de Juegos",
+      "descripcion": "Nueva área de entretenimiento para toda la familia con juegos interactivos.",
+      "fecha": "2026-02-15",
+      "hora": "10:00",
+      "ubicacion": "Nivel 3",
+      "imagen": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800"
+    },
+    {
+      "id": 2,
+      "titulo": "Concierto de San Valentín",
+      "descripcion": "Música en vivo con artistas locales para celebrar el amor.",
+      "fecha": "2026-02-14",
+      "hora": "18:00",
+      "ubicacion": "Plaza Central",
+      "imagen": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800"
+    },
+    {
+      "id": 3,
+      "titulo": "Feria de Emprendedores",
+      "descripcion": "Apoya el talento local. Más de 50 emprendedores guatemaltecos.",
+      "fecha": "2026-02-22",
+      "hora": "09:00",
+      "ubicacion": "Pasillo Principal",
+      "imagen": "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800"
+    }
+  ],
+  "promociones": [
+    {
+      "id": 1,
+      "titulo": "2x1 en Café El Refugio",
+      "descripcion": "Todos los miércoles, lleva 2 cafés por el precio de 1.",
+      "negocio_id": 4,
+      "fechaInicio": "2026-01-01",
+      "fechaFin": "2026-03-31",
+      "imagen": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800"
+    },
+    {
+      "id": 2,
+      "titulo": "Consulta Médica a Q40",
+      "descripcion": "Atención médica de calidad al mejor precio en Apomedix.",
+      "negocio_id": 1,
+      "fechaInicio": "2026-01-01",
+      "fechaFin": "2026-12-31",
+      "imagen": "assets/images/negocios/apomedix.png"
+    },
+    {
+      "id": 3,
+      "titulo": "Nuevas Carnitas",
+      "descripcion": "Por tiempo limitado, prueba las nuevas Carnitas en Taco Bell.",
+      "negocio_id": 2,
+      "fechaInicio": "2026-01-15",
+      "fechaFin": "2026-02-28",
+      "imagen": "assets/images/negocios/tacobell.png"
+    }
+  ],
+  "noticias": [
+    {
+      "id": 1,
+      "titulo": "Plaza San Rafael amplía horarios",
+      "resumen": "A partir de febrero, el centro comercial extenderá su horario hasta las 22:00 hrs.",
+      "contenido": "Pensando en la comodidad de nuestros visitantes, Plaza San Rafael ha decidido ampliar su horario de atención...",
+      "fecha": "2026-01-10",
+      "imagen": "https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?w=800"
+    },
+    {
+      "id": 2,
+      "titulo": "Nuevo estacionamiento techado",
+      "resumen": "Inauguramos 200 espacios adicionales de estacionamiento con techo.",
+      "contenido": "Para mejorar la experiencia de nuestros clientes, hemos inaugurado una nueva área de estacionamiento...",
+      "fecha": "2026-01-05",
+      "imagen": "https://images.unsplash.com/photo-1506521781263-d8422e82f27a?w=800"
+    }
+  ],
+  "centroComercial": {
+    "nombre": "Plaza San Rafael",
+    "direccion": "Km 7.5 Carretera al Atlántico, Zona 18, Ciudad de Guatemala",
+    "telefono": "+502 2505-8000",
+    "email": "info@plazasanrafael.com.gt",
+    "web": "https://plazasanrafael.com.gt",
+    "horario": "Lunes a Domingo: 10:00 - 21:00",
+    "redesSociales": {
+      "facebook": "https://facebook.com/plazasanrafael",
+      "instagram": "https://instagram.com/plazasanrafael",
+      "tiktok": "https://tiktok.com/@plazasanrafael"
+    },
+    "servicios": [
+      "Estacionamiento gratuito",
+      "WiFi gratis",
+      "Seguridad 24/7",
+      "Cajeros automáticos",
+      "Área de lactancia",
+      "Sillas de ruedas disponibles"
+    ]
+  }
+}

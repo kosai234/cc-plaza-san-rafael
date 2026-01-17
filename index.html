@@ -46,6 +46,17 @@
                 },
             },
         };
+
+        // Dark Mode Toggle - debe estar en el head para funcionar inmediatamente
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        }
+
+        // Cargar preferencia guardada inmediatamente
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+        }
     </script>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 font-sans transition-colors duration-300">

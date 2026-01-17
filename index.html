@@ -173,8 +173,78 @@
             <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Explora por Categoria</h2>
             <p class="mt-2 text-gray-600 dark:text-gray-400">Encuentra lo que buscas rapidamente</p>
         </div>
-        <div id="categorias-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
-            <!-- Categories will be loaded dynamically -->
+        <div id="categorias-grid" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
+            <!-- Restaurantes -->
+            <a href="#directorio" class="category-pill group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-300 p-4 flex flex-col items-center justify-center border border-gray-100 dark:border-gray-700">
+                <div class="h-12 w-12 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                    <span class="material-icons text-xl text-secondary">restaurant</span>
+                </div>
+                <h3 class="text-sm font-semibold text-gray-900 dark:text-white text-center">Restaurantes</h3>
+                <div class="absolute inset-x-0 bottom-0 h-1 bg-secondary scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            </a>
+
+            <!-- Salud -->
+            <a href="#directorio" class="category-pill group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-300 p-4 flex flex-col items-center justify-center border border-gray-100 dark:border-gray-700">
+                <div class="h-12 w-12 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                    <span class="material-icons text-xl text-accent">local_hospital</span>
+                </div>
+                <h3 class="text-sm font-semibold text-gray-900 dark:text-white text-center">Salud</h3>
+                <div class="absolute inset-x-0 bottom-0 h-1 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            </a>
+
+            <!-- Tiendas -->
+            <a href="#directorio" class="category-pill group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-300 p-4 flex flex-col items-center justify-center border border-gray-100 dark:border-gray-700">
+                <div class="h-12 w-12 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                    <span class="material-icons text-xl text-primary">shopping_bag</span>
+                </div>
+                <h3 class="text-sm font-semibold text-gray-900 dark:text-white text-center">Tiendas</h3>
+                <div class="absolute inset-x-0 bottom-0 h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            </a>
+
+            <!-- Cafeterias -->
+            <a href="#directorio" class="category-pill group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-300 p-4 flex flex-col items-center justify-center border border-gray-100 dark:border-gray-700">
+                <div class="h-12 w-12 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                    <span class="material-icons text-xl text-secondary">local_cafe</span>
+                </div>
+                <h3 class="text-sm font-semibold text-gray-900 dark:text-white text-center">Cafeterias</h3>
+                <div class="absolute inset-x-0 bottom-0 h-1 bg-secondary scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            </a>
+
+            <!-- Mascotas -->
+            <a href="#directorio" class="category-pill group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-300 p-4 flex flex-col items-center justify-center border border-gray-100 dark:border-gray-700">
+                <div class="h-12 w-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                    <span class="material-icons text-xl text-brandBlue">pets</span>
+                </div>
+                <h3 class="text-sm font-semibold text-gray-900 dark:text-white text-center">Mascotas</h3>
+                <div class="absolute inset-x-0 bottom-0 h-1 bg-brandBlue scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            </a>
+
+            <!-- Belleza -->
+            <a href="#directorio" class="category-pill group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-300 p-4 flex flex-col items-center justify-center border border-gray-100 dark:border-gray-700">
+                <div class="h-12 w-12 bg-pink-100 dark:bg-pink-900/30 rounded-full flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                    <span class="material-icons text-xl text-pink-500">spa</span>
+                </div>
+                <h3 class="text-sm font-semibold text-gray-900 dark:text-white text-center">Belleza</h3>
+                <div class="absolute inset-x-0 bottom-0 h-1 bg-pink-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            </a>
+
+            <!-- Servicios -->
+            <a href="#directorio" class="category-pill group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-300 p-4 flex flex-col items-center justify-center border border-gray-100 dark:border-gray-700">
+                <div class="h-12 w-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                    <span class="material-icons text-xl text-brandBlue">account_balance</span>
+                </div>
+                <h3 class="text-sm font-semibold text-gray-900 dark:text-white text-center">Servicios</h3>
+                <div class="absolute inset-x-0 bottom-0 h-1 bg-brandBlue scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            </a>
+
+            <!-- Tecnologia -->
+            <a href="#directorio" class="category-pill group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-300 p-4 flex flex-col items-center justify-center border border-gray-100 dark:border-gray-700">
+                <div class="h-12 w-12 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                    <span class="material-icons text-xl text-accent">devices</span>
+                </div>
+                <h3 class="text-sm font-semibold text-gray-900 dark:text-white text-center">Tecnologia</h3>
+                <div class="absolute inset-x-0 bottom-0 h-1 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            </a>
         </div>
     </section>
 

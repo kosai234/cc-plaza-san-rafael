@@ -195,47 +195,69 @@ function renderTopNegocios() {
     const topNegocios = negociosData.negocios.filter(n => n.esTop && n.esPatrocinado);
 
     if (topNegocios.length === 0) {
-        container.innerHTML = '<p class="text-center text-gray-500 col-span-2">No hay negocios destacados disponibles.</p>';
+        container.innerHTML = '<p class="text-center text-gray-500 col-span-3">No hay negocios destacados disponibles.</p>';
         return;
     }
 
-    container.innerHTML = topNegocios.map(negocio => `
+    container.innerHTML = topNegocios.slice(0, 6).map(negocio => `
         <div class="card-negocio bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border-2 border-secondary dark:border-amber-400 ring-4 ring-secondary/10 flex flex-col">
-            <div class="h-48 relative overflow-hidden">
+            <div class="h-52 relative overflow-hidden">
                 <img alt="${negocio.nombre}" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" src="${negocio.imagen}" onerror="this.src='https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800'">
                 <div class="absolute top-4 right-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full shadow flex items-center badge-sponsored">
                     <span class="material-icons text-sm mr-1">star</span>
-                    TOP
+                    PREFERIDO
                 </div>
                 <div class="absolute top-4 left-4 bg-white/90 dark:bg-gray-900/90 text-xs font-bold px-2 py-1 rounded-full shadow text-gray-800 dark:text-gray-200 uppercase tracking-wider">
                     ${negocio.categoria}
                 </div>
             </div>
-            <div class="p-6 flex-1 flex flex-col">
+            <div class="p-5 flex-1 flex flex-col">
                 <div class="flex items-center justify-between mb-2">
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">${negocio.nombre}</h3>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">${negocio.nombre}</h3>
                     <span class="flex items-center text-yellow-400 text-sm">
                         <span class="material-icons text-base mr-1">star</span> ${negocio.rating}
                     </span>
                 </div>
-                <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">${negocio.descripcion}</p>
-                <div class="flex flex-wrap gap-2 mb-4">
-                    ${(negocio.servicios || []).slice(0, 2).map(s => `
-                        <span class="text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-2 py-1 rounded-full">${s}</span>
-                    `).join('')}
+                <p class="text-gray-600 dark:text-gray-300 text-sm mb-3 line-clamp-2">${negocio.descripcion}</p>
+
+                <!-- Info de ubicacion -->
+                <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-2">
+                    <span class="material-icons text-sm mr-1 text-primary">place</span> ${negocio.nivel}, ${negocio.local}
                 </div>
+
+                <!-- Telefono -->
+                <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-2">
+                    <span class="material-icons text-sm mr-1 text-accent">phone</span>
+                    <a href="tel:${negocio.telefono}" class="hover:text-accent">${negocio.telefono}</a>
+                </div>
+
+                <!-- Web -->
+                ${negocio.web ? `
+                <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+                    <span class="material-icons text-sm mr-1 text-brandBlue">language</span>
+                    <a href="${negocio.web}" target="_blank" class="hover:text-brandBlue truncate">${negocio.web.replace('https://', '')}</a>
+                </div>` : ''}
+
+                <!-- Redes sociales -->
+                <div class="flex items-center gap-2 mb-3">
+                    ${negocio.redesSociales?.facebook ? `
+                    <a href="${negocio.redesSociales.facebook}" target="_blank" class="w-8 h-8 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors">
+                        <span class="material-icons text-sm">facebook</span>
+                    </a>` : ''}
+                    ${negocio.redesSociales?.instagram ? `
+                    <a href="${negocio.redesSociales.instagram}" target="_blank" class="w-8 h-8 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 text-white rounded-lg flex items-center justify-center hover:opacity-90 transition-opacity">
+                        <span class="material-icons text-sm">camera_alt</span>
+                    </a>` : ''}
+                    ${negocio.whatsapp ? `
+                    <a href="https://wa.me/${negocio.whatsapp.replace(/[^0-9]/g, '')}" target="_blank" class="w-8 h-8 bg-green-500 text-white rounded-lg flex items-center justify-center hover:bg-green-600 transition-colors">
+                        <span class="material-icons text-sm">chat</span>
+                    </a>` : ''}
+                </div>
+
                 <div class="mt-auto">
-                    <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
-                        <span class="material-icons text-sm mr-1">place</span> ${negocio.nivel}, ${negocio.local}
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <a href="tel:${negocio.telefono}" class="flex items-center text-sm text-accent hover:text-green-600">
-                            <span class="material-icons text-sm mr-1">phone</span> ${negocio.telefono}
-                        </a>
-                        <button onclick="openNegocioModal(${negocio.id})" class="text-secondary font-medium text-sm hover:text-amber-600 transition-colors">
-                            Ver más
-                        </button>
-                    </div>
+                    <button onclick="openNegocioModal(${negocio.id})" class="w-full bg-secondary hover:bg-amber-600 text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center justify-center">
+                        <span class="material-icons text-sm mr-1">info</span> Ver detalles
+                    </button>
                 </div>
             </div>
         </div>
@@ -260,20 +282,45 @@ function renderFeaturedNegocios() {
                     ${negocio.categoria}
                 </div>
             </div>
-            <div class="p-6 flex-1 flex flex-col">
+            <div class="p-5 flex-1 flex flex-col">
                 <div class="flex items-center justify-between mb-2">
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">${negocio.nombre}</h3>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">${negocio.nombre}</h3>
                     <span class="flex items-center text-yellow-400 text-sm">
                         <span class="material-icons text-base mr-1">star</span> ${negocio.rating}
                     </span>
                 </div>
-                <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">${negocio.descripcion}</p>
-                <div class="mt-auto flex items-center justify-between">
-                    <span class="text-sm text-gray-500 dark:text-gray-400 flex items-center">
-                        <span class="material-icons text-sm mr-1">place</span> ${negocio.nivel}, ${negocio.local}
-                    </span>
-                    <button onclick="openNegocioModal(${negocio.id})" class="text-primary font-medium text-sm hover:text-purple-700 dark:hover:text-purple-400 transition-colors">
-                        Ver más
+                <p class="text-gray-600 dark:text-gray-300 text-sm mb-3 line-clamp-2">${negocio.descripcion}</p>
+
+                <!-- Info de ubicacion -->
+                <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-2">
+                    <span class="material-icons text-sm mr-1 text-primary">place</span> ${negocio.nivel}, ${negocio.local}
+                </div>
+
+                <!-- Telefono -->
+                <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-2">
+                    <span class="material-icons text-sm mr-1 text-accent">phone</span>
+                    <a href="tel:${negocio.telefono}" class="hover:text-accent">${negocio.telefono}</a>
+                </div>
+
+                <!-- Redes sociales -->
+                <div class="flex items-center gap-2 mb-3">
+                    ${negocio.redesSociales?.facebook ? `
+                    <a href="${negocio.redesSociales.facebook}" target="_blank" class="w-7 h-7 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors">
+                        <span class="material-icons text-xs">facebook</span>
+                    </a>` : ''}
+                    ${negocio.redesSociales?.instagram ? `
+                    <a href="${negocio.redesSociales.instagram}" target="_blank" class="w-7 h-7 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 text-white rounded-lg flex items-center justify-center hover:opacity-90 transition-opacity">
+                        <span class="material-icons text-xs">camera_alt</span>
+                    </a>` : ''}
+                    ${negocio.whatsapp ? `
+                    <a href="https://wa.me/${negocio.whatsapp.replace(/[^0-9]/g, '')}" target="_blank" class="w-7 h-7 bg-green-500 text-white rounded-lg flex items-center justify-center hover:bg-green-600 transition-colors">
+                        <span class="material-icons text-xs">chat</span>
+                    </a>` : ''}
+                </div>
+
+                <div class="mt-auto">
+                    <button onclick="openNegocioModal(${negocio.id})" class="w-full bg-primary hover:bg-purple-700 text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center justify-center text-sm">
+                        <span class="material-icons text-sm mr-1">info</span> Ver detalles
                     </button>
                 </div>
             </div>
@@ -440,21 +487,50 @@ function filterByCategory(categoria) {
                 <div class="absolute top-4 right-4 bg-white/90 dark:bg-gray-900/90 text-xs font-bold px-2 py-1 rounded-full shadow text-gray-800 dark:text-gray-200 uppercase tracking-wider">
                     ${negocio.categoria}
                 </div>
+                ${negocio.esPatrocinado ? `
+                <div class="absolute top-4 left-4 bg-secondary text-white text-xs font-bold px-2 py-1 rounded-full shadow flex items-center">
+                    <span class="material-icons text-xs mr-1">star</span> PREFERIDO
+                </div>` : ''}
             </div>
-            <div class="p-6 flex-1 flex flex-col">
+            <div class="p-5 flex-1 flex flex-col">
                 <div class="flex items-center justify-between mb-2">
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">${negocio.nombre}</h3>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">${negocio.nombre}</h3>
                     <span class="flex items-center text-yellow-400 text-sm">
                         <span class="material-icons text-base mr-1">star</span> ${negocio.rating}
                     </span>
                 </div>
-                <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">${negocio.descripcion}</p>
-                <div class="mt-auto flex items-center justify-between">
-                    <span class="text-sm text-gray-500 dark:text-gray-400 flex items-center">
-                        <span class="material-icons text-sm mr-1">place</span> ${negocio.nivel}, ${negocio.local}
-                    </span>
-                    <button onclick="openNegocioModal(${negocio.id})" class="text-primary font-medium text-sm hover:text-purple-700 dark:hover:text-purple-400 transition-colors">
-                        Ver más
+                <p class="text-gray-600 dark:text-gray-300 text-sm mb-3 line-clamp-2">${negocio.descripcion}</p>
+
+                <!-- Info de ubicacion -->
+                <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-2">
+                    <span class="material-icons text-sm mr-1 text-primary">place</span> ${negocio.nivel}, ${negocio.local}
+                </div>
+
+                <!-- Telefono -->
+                <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-2">
+                    <span class="material-icons text-sm mr-1 text-accent">phone</span>
+                    <a href="tel:${negocio.telefono}" class="hover:text-accent">${negocio.telefono}</a>
+                </div>
+
+                <!-- Redes sociales -->
+                <div class="flex items-center gap-2 mb-3">
+                    ${negocio.redesSociales?.facebook ? `
+                    <a href="${negocio.redesSociales.facebook}" target="_blank" class="w-7 h-7 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors">
+                        <span class="material-icons text-xs">facebook</span>
+                    </a>` : ''}
+                    ${negocio.redesSociales?.instagram ? `
+                    <a href="${negocio.redesSociales.instagram}" target="_blank" class="w-7 h-7 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 text-white rounded-lg flex items-center justify-center hover:opacity-90 transition-opacity">
+                        <span class="material-icons text-xs">camera_alt</span>
+                    </a>` : ''}
+                    ${negocio.whatsapp ? `
+                    <a href="https://wa.me/${negocio.whatsapp.replace(/[^0-9]/g, '')}" target="_blank" class="w-7 h-7 bg-green-500 text-white rounded-lg flex items-center justify-center hover:bg-green-600 transition-colors">
+                        <span class="material-icons text-xs">chat</span>
+                    </a>` : ''}
+                </div>
+
+                <div class="mt-auto">
+                    <button onclick="openNegocioModal(${negocio.id})" class="w-full bg-primary hover:bg-purple-700 text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center justify-center text-sm">
+                        <span class="material-icons text-sm mr-1">info</span> Ver detalles
                     </button>
                 </div>
             </div>
@@ -570,6 +646,22 @@ function openNegocioModal(id) {
                     ${(negocio.servicios || []).map(s => `<span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm px-3 py-1 rounded-full">${s}</span>`).join('')}
                 </div>
             </div>
+
+            <!-- Redes Sociales -->
+            ${negocio.redesSociales && (negocio.redesSociales.facebook || negocio.redesSociales.instagram) ? `
+            <div class="mb-6">
+                <h4 class="font-semibold text-gray-900 dark:text-white mb-3">Redes Sociales</h4>
+                <div class="flex gap-3">
+                    ${negocio.redesSociales?.facebook ? `
+                    <a href="${negocio.redesSociales.facebook}" target="_blank" class="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors">
+                        <span class="material-icons">facebook</span>
+                    </a>` : ''}
+                    ${negocio.redesSociales?.instagram ? `
+                    <a href="${negocio.redesSociales.instagram}" target="_blank" class="w-10 h-10 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 text-white rounded-lg flex items-center justify-center hover:opacity-90 transition-opacity">
+                        <span class="material-icons">camera_alt</span>
+                    </a>` : ''}
+                </div>
+            </div>` : ''}
 
             <div class="flex gap-3">
                 ${negocio.whatsapp ? `

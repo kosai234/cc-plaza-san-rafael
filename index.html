@@ -92,6 +92,7 @@
                     <a class="text-gray-600 dark:text-gray-300 hover:text-brandBlue dark:hover:text-brandBlue px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#promociones">Promociones</a>
                     <a class="text-gray-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#noticias">Noticias</a>
                     <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#contacto">Contacto</a>
+                    <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors" href="https://mapa-mall-interactivo.netlify.app" target="_blank">Mapa</a>
                 </div>
 
                 <!-- Actions -->
@@ -107,69 +108,77 @@
             </div>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="lg:hidden" style="display: none;">
-            <!-- Overlay -->
-            <div class="fixed inset-0 bg-black bg-opacity-50 z-40" onclick="toggleMobileMenu()"></div>
+    </nav>
 
-            <!-- Menu Panel -->
-            <div class="fixed top-0 left-0 bottom-0 w-72 bg-white dark:bg-gray-900 z-50 shadow-xl overflow-y-auto">
-                <!-- Header -->
-                <div class="bg-purple-700 p-5">
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center gap-3">
-                            <img alt="Logo" class="h-10 w-10 object-contain rounded-lg bg-white p-1" src="assets/images/logo.jpg">
-                            <span class="font-bold text-white">Plaza San Rafael</span>
+    <!-- Mobile Menu - PANTALLA COMPLETA -->
+    <div id="mobile-menu" class="lg:hidden fixed inset-0 z-[9999]" style="display: none;">
+        <!-- Overlay oscuro -->
+        <div class="absolute inset-0 bg-black/60" onclick="toggleMobileMenu()"></div>
+
+        <!-- Panel del menú - pantalla completa -->
+        <div class="absolute inset-0 bg-white dark:bg-gray-900 flex flex-col">
+            <!-- Header con gradiente morado -->
+            <div class="bg-gradient-to-r from-purple-700 to-purple-900 p-6 flex-shrink-0">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-4">
+                        <img alt="Logo" class="h-14 w-14 object-contain rounded-xl bg-white p-1" src="assets/images/logo.jpg">
+                        <div>
+                            <span class="font-bold text-white text-xl block">Plaza San Rafael</span>
+                            <span class="text-purple-200 text-sm">Centro Comercial</span>
                         </div>
-                        <button onclick="toggleMobileMenu()" class="text-white p-2">
-                            <span class="material-icons">close</span>
-                        </button>
                     </div>
+                    <button onclick="toggleMobileMenu()" class="text-white p-3 bg-white/20 rounded-full hover:bg-white/30">
+                        <span class="material-icons text-2xl">close</span>
+                    </button>
                 </div>
+            </div>
 
-                <!-- Navigation Links -->
-                <nav class="p-4">
-                    <a href="#top-negocios" onclick="toggleMobileMenu()" class="flex items-center gap-3 py-4 px-3 text-gray-800 dark:text-white border-b border-gray-200 dark:border-gray-700">
-                        <span class="material-icons text-yellow-500">star</span>
-                        <span class="font-medium">Nuestros Preferidos</span>
-                    </a>
-                    <a href="#directorio" onclick="toggleMobileMenu()" class="flex items-center gap-3 py-4 px-3 text-gray-800 dark:text-white border-b border-gray-200 dark:border-gray-700">
-                        <span class="material-icons text-purple-600">store</span>
-                        <span class="font-medium">Directorio</span>
-                    </a>
-                    <a href="#eventos" onclick="toggleMobileMenu()" class="flex items-center gap-3 py-4 px-3 text-gray-800 dark:text-white border-b border-gray-200 dark:border-gray-700">
-                        <span class="material-icons text-green-500">event</span>
-                        <span class="font-medium">Eventos</span>
-                    </a>
-                    <a href="#promociones" onclick="toggleMobileMenu()" class="flex items-center gap-3 py-4 px-3 text-gray-800 dark:text-white border-b border-gray-200 dark:border-gray-700">
-                        <span class="material-icons text-red-500">local_offer</span>
-                        <span class="font-medium">Promociones</span>
-                    </a>
-                    <a href="#noticias" onclick="toggleMobileMenu()" class="flex items-center gap-3 py-4 px-3 text-gray-800 dark:text-white border-b border-gray-200 dark:border-gray-700">
-                        <span class="material-icons text-blue-500">newspaper</span>
-                        <span class="font-medium">Noticias</span>
-                    </a>
-                    <a href="#contacto" onclick="toggleMobileMenu()" class="flex items-center gap-3 py-4 px-3 text-gray-800 dark:text-white">
-                        <span class="material-icons text-gray-500">place</span>
-                        <span class="font-medium">Contacto</span>
-                    </a>
-                </nav>
+            <!-- Links de navegación -->
+            <nav class="flex-1 overflow-y-auto p-6">
+                <a href="#top-negocios" onclick="toggleMobileMenu()" class="flex items-center gap-4 py-5 px-4 text-gray-800 dark:text-white border-b border-gray-200 dark:border-gray-700 text-lg">
+                    <span class="material-icons text-3xl text-yellow-500">star</span>
+                    <span class="font-semibold">Nuestros Preferidos</span>
+                </a>
+                <a href="#directorio" onclick="toggleMobileMenu()" class="flex items-center gap-4 py-5 px-4 text-gray-800 dark:text-white border-b border-gray-200 dark:border-gray-700 text-lg">
+                    <span class="material-icons text-3xl text-purple-600">store</span>
+                    <span class="font-semibold">Directorio</span>
+                </a>
+                <a href="#eventos" onclick="toggleMobileMenu()" class="flex items-center gap-4 py-5 px-4 text-gray-800 dark:text-white border-b border-gray-200 dark:border-gray-700 text-lg">
+                    <span class="material-icons text-3xl text-green-500">event</span>
+                    <span class="font-semibold">Eventos</span>
+                </a>
+                <a href="#promociones" onclick="toggleMobileMenu()" class="flex items-center gap-4 py-5 px-4 text-gray-800 dark:text-white border-b border-gray-200 dark:border-gray-700 text-lg">
+                    <span class="material-icons text-3xl text-red-500">local_offer</span>
+                    <span class="font-semibold">Promociones</span>
+                </a>
+                <a href="#noticias" onclick="toggleMobileMenu()" class="flex items-center gap-4 py-5 px-4 text-gray-800 dark:text-white border-b border-gray-200 dark:border-gray-700 text-lg">
+                    <span class="material-icons text-3xl text-blue-500">newspaper</span>
+                    <span class="font-semibold">Noticias</span>
+                </a>
+                <a href="#contacto" onclick="toggleMobileMenu()" class="flex items-center gap-4 py-5 px-4 text-gray-800 dark:text-white border-b border-gray-200 dark:border-gray-700 text-lg">
+                    <span class="material-icons text-3xl text-gray-500">place</span>
+                    <span class="font-semibold">Contacto</span>
+                </a>
+                <a href="https://mapa-mall-interactivo.netlify.app" target="_blank" onclick="toggleMobileMenu()" class="flex items-center gap-4 py-5 px-4 text-gray-800 dark:text-white text-lg">
+                    <span class="material-icons text-3xl text-indigo-500">map</span>
+                    <span class="font-semibold">Mapa del Mall</span>
+                </a>
+            </nav>
 
-                <!-- Social Links -->
-                <div class="p-4 mt-4 border-t border-gray-200 dark:border-gray-700">
-                    <p class="text-sm text-gray-500 mb-3">Siguenos en redes:</p>
-                    <div class="flex gap-3">
-                        <a href="https://www.facebook.com/sanrafaelatlantico.oficial" target="_blank" class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center">
-                            <span class="material-icons">facebook</span>
-                        </a>
-                        <a href="https://www.instagram.com/sanrafaelatlantico.oficial/" target="_blank" class="w-10 h-10 bg-pink-500 text-white rounded-full flex items-center justify-center">
-                            <span class="material-icons">camera_alt</span>
-                        </a>
-                    </div>
+            <!-- Footer con redes sociales -->
+            <div class="p-6 bg-gray-100 dark:bg-gray-800 flex-shrink-0">
+                <p class="text-gray-600 dark:text-gray-400 mb-4 text-center">Síguenos en redes sociales</p>
+                <div class="flex justify-center gap-4">
+                    <a href="https://www.facebook.com/sanrafaelatlantico.oficial" target="_blank" class="w-14 h-14 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-lg">
+                        <span class="material-icons text-2xl">facebook</span>
+                    </a>
+                    <a href="https://www.instagram.com/sanrafaelatlantico.oficial/" target="_blank" class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 text-white rounded-full flex items-center justify-center shadow-lg">
+                        <span class="material-icons text-2xl">camera_alt</span>
+                    </a>
                 </div>
             </div>
         </div>
-    </nav>
+    </div>
 
     <!-- Top Banner (Advertising Space) -->
     <div id="top-banner" class="bg-gradient-to-r from-purple-600 to-blue-500 text-white p-3 transition-all duration-300">
